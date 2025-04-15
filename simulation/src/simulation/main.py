@@ -38,8 +38,7 @@ def run(n_client, n_obs, n_month):
         "nb_month" : n_month ,
         #'nb_month' : 3
     }
-
-    Simulation().crew().kickoff(inputs=inputs)
+    #Simulation().crew().kickoff(inputs=inputs)
 
 def Run(n_clients, n_obs_n, n_obs_f) :
     
@@ -510,8 +509,8 @@ def Scenario_1() :
             st.markdown('<div class="center-content">', unsafe_allow_html=True)
         
         
-        st.session_state.data_bank = pd.read_csv("Bank_transaction.csv", sep=';', skiprows=1)
-        #st.session_state.data_bank = pd.read_csv("Bank_transaction.csv", sep = ";")
+        #st.session_state.data_bank = pd.read_csv("Bank_transaction.csv", sep=';', skiprows=1)
+        st.session_state.data_bank = pd.read_csv("Bank_transaction.csv", sep = ";")
         dat = st.session_state.data_bank.copy()
         file_tr = dat.to_csv(index=False, sep=';')    
 
