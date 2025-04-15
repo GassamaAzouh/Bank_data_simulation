@@ -478,6 +478,7 @@ def Scenario_1() :
     if st.button(" Executer "):
         st.session_state.button_exec_clicked = True  # Met à jour l'état du bouton
         try :
+            st.write(" Veillez patientez la simulation peut prendre quelques minutes")
             st.write(" Simulation en cours ... ")
             result = run(n_client, n_obs, n_month)
             st.write(" Simulation terminée ! ✅ ") 
