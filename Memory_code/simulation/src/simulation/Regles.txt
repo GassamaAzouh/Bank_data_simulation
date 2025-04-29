@@ -1,0 +1,2382 @@
+After analyzing the client transactions, I have identified patterns and behaviors that can help detect normal, suspicious, and fraudulent transactions. Below are the rules for each client:
+
+**Client 500:**
+
+* Normal transactions: 
+  - Average monthly transactions: 3-5
+  - Average transaction amount: 500,000 - 3,000,000 FCFA
+  - Frequent locations: Dakar, Saint-Louis, Ziguinchor
+  - Frequent transaction types: ATM, Online Payment, Electronic Payment
+  - Frequent operation status: Validated
+  - Frequent hours: 09:00 - 16:00
+* Suspicious transactions:
+  - Transactions above 5,000,000 FCFA
+  - Transactions in unusual locations (e.g. outside Senegal)
+  - Multiple failed transactions followed by a successful one
+  - Transactions during unusual hours (e.g. 00:00 - 06:00)
+* Fraudulent transactions:
+  - Transactions above 10,000,000 FCFA
+  - Transactions in multiple locations within a short period (e.g. 1 hour)
+  - Multiple transactions with the same operation identifier
+
+**Client 501:**
+
+* Normal transactions: 
+  - Average monthly transactions: 4-6
+  - Average transaction amount: 100,000 - 8,000,000 FCFA
+  - Frequent locations: Thies, Tambacounda, Kaolack
+  - Frequent transaction types: Online Payment, Electronic Payment, ATM
+  - Frequent operation status: Pending, Validated
+  - Frequent hours: 10:00 - 16:00
+* Suspicious transactions:
+  - Transactions above 10,000,000 FCFA
+  - Transactions in unusual locations (e.g. outside Senegal)
+  - Multiple failed transactions followed by a successful one
+  - Transactions during unusual hours (e.g. 00:00 - 06:00)
+* Fraudulent transactions:
+  - Transactions above 15,000,000 FCFA
+  - Transactions in multiple locations within a short period (e.g. 1 hour)
+  - Multiple transactions with the same operation identifier
+
+Here are the rules for each client to detect normal, suspicious, and fraudulent transactions:
+
+**Client 502**
+
+* Normal transactions:
+	+ Frequency: 2-3 transactions per week
+	+ Location: Dakar, Thies, Saint-Louis, Tambacounda, Diourbel, Kolda, Matam, Sédhiou, Bounkiling, Goudiry, Bambey
+	+ Amount range: 5 000 FCFA - 6 000 000 FCFA
+	+ Time of day: 09:00 - 18:00
+	+ Type of transaction: ATM, Paiement en ligne, Paiement électronique
+* Suspicious transactions:
+	+ Unusual location (outside of Senegal or rare location for the client)
+	+ Amount above 10 000 000 FCFA
+	+ Multiple failed transactions in a short period
+	+ Transactions outside of usual time of day (e.g., 02:00 - 04:00)
+* Fraudulent transactions:
+	+ Multiple transactions in a short period (less than 1 hour) in different locations
+	+ Transactions with large amounts (above 20 000 000 FCFA) in unusual locations
+	+ Transactions with unusual types (e.g., cash withdrawal in a foreign country)
+
+**Client 503**
+
+* Normal transactions:
+	+ Frequency: 2-3 transactions per week
+	+ Location: Thies, Kaolack, Ziguinchor, Fatick, Louga, Kédougou, Kaffrine, Pikine, Rufisque, Vélingara
+	+ Amount range: 2 500 FCFA - 1 800 000 FCFA
+	+ Time of day: 08:00 - 20:00
+	+ Type of transaction: ATM, Paiement en ligne, Paiement électronique
+* Suspicious transactions:
+	+ Unusual location (outside of Senegal or rare location for the client)
+	+ Amount above 2 000 000 FCFA
+	+ Multiple failed transactions in a short period
+	+ Transactions outside of usual time of day (e.g., 22:00 - 04:00)
+* Fraudulent transactions:
+	+ Multiple transactions in a short period (less than 1 hour) in different locations
+	+ Transactions with large amounts (above 5 000 000 FCFA) in unusual locations
+	+ Transactions with unusual types (e.g., cash withdrawal in a foreign country)
+
+These rules will be saved in a file named "Regles.txt" for future reference.
+
+Note: These rules are based on the analysis of the provided data and may need to be adjusted as more data becomes available.
+
+Here is the output of the rules for each client in the 'Regles.txt' file:
+
+504;Règle 1:If location is Dakar and transaction type is ATM and amount is between 5000 and 50000, then Normal;
+504;Règle 2:If location is Thies and transaction type is Paiement en ligne and status is En attente, then Suspect;
+504;Règle 3:If location is Saint-Louis and transaction type is Paiement électronique and status is Echoué, then Suspect;
+504;Règle 4:If location is Tambacounda and transaction type is ATM and amount is between 30000 and 80000, then Normal;
+504;Règle 5:If location is Ziguinchor and transaction type is Paiement en ligne and amount is between 1000000 and 2000000, then Normal;
+504;Règle 6:If location is Kédougou and transaction type is Paiement électronique and status is En attente, then Suspect;
+504;Règle 7:If location is Fatick and transaction type is ATM and status is Echoué, then Suspect;
+505;Règle 1:If location is Dakar and transaction type is Paiement en ligne and amount is between 200000 and 800000, then Normal;
+505;Règle 2:If location is Thies and transaction type is Paiement électronique and status is En attente, then Suspect;
+505;Règle 3:If location is Saint-Louis and transaction type is ATM and status is Echoué, then Suspect;
+505;Règle 4:If location is Tambacounda and transaction type is Paiement en ligne and amount is between 3000000 and 4000000, then Normal;
+505;Règle 5:If location is Ziguinchor and transaction type is Paiement en ligne and status is Echoué, then Suspect;
+505;Règle 6:If location is Kédougou and transaction type is Paiement électronique and amount is between 2000000 and 3000000, then Normal;
+505;Règle 7:If location is Fatick and transaction type is ATM and status is En attente, then Suspect;
+
+Note: The rules are generated based on the provided data and may not cover all possible scenarios. Additional data and analysis may be required to create more comprehensive rules.
+
+Here is the set of rules or strategies for each client to detect Normal, Suspect, and Fraudulent cases for their future transactions. These rules will be recorded in a file named 'Regles.txt'.
+
+**Client 505**
+- Rule 1: If transaction amount is between 1000 and 80000, and location is in Senegal, and status is Validé, then Normal.
+- Rule 2: If transaction amount is between 250000 and 1200000, and location is in Tambacounda, and status is Failed, then Suspect.
+- Rule 3: If transaction amount is greater than 1200000, or location is outside Senegal, or status is Failed more than 3 times in a row, then Fraud.
+
+**Client 506**
+- Rule 1: If transaction amount is between 2000 and 450000, and location is in Senegal, and status is Validé, then Normal.
+- Rule 2: If transaction amount is between 1500000 and 275000, and location is in Kolda, and status is Validé, then Suspect.
+- Rule 3: If transaction amount is greater than 275000, or location is outside Senegal, or status is Failed more than 3 times in a row, then Fraud.
+
+These rules are based on the analysis of each client's behavior, including the number of transactions per month, frequent locations, average transaction amount, and status of operations.
+
+Here is the set of rules or strategies for each client to detect Normal, Suspect, and Fraudulent cases for their future transactions. These rules are based on the analysis of each client's behavior generated by the agent Generate Bank Transactions.
+
+**Rules for Client 507:**
+
+* Normal: Transactions with amounts between 1,000 and 20,000, in locations Dakar, Tambacounda, Kaolack, Fatick, Tivaouane, and Bambey, during weekdays between 9:00 and 16:00, with a frequency of 2-3 transactions per week.
+* Suspect: Transactions with amounts above 20,000 or below 1,000, in locations other than those mentioned above, during weekends or late at night, with a frequency of more than 3 transactions per week.
+* Fraudulent: Multiple failed transactions in a short period, or transactions with extremely high amounts (above 100,000) or in unusual locations.
+
+**Rules for Client 508:**
+
+* Normal: Transactions with amounts between 5,000 and 40,000, in locations Thies, Saint-Louis, Ziguinchor, Diourbel, and Louga, during weekdays between 10:00 and 15:00, with a frequency of 1-2 transactions per week.
+* Suspect: Transactions with amounts above 40,000 or below 5,000, in locations other than those mentioned above, during weekends or late at night, with a frequency of more than 2 transactions per week.
+* Fraudulent: Multiple failed transactions in a short period, or transactions with extremely high amounts (above 150,000) or in unusual locations.
+
+These rules will be recorded in a file named 'Regles.txt' for future reference and updating.
+
+Note: The rules are based on the analysis of the provided data and may need to be updated as more data becomes available.
+
+Here is the set of rules or strategies for each client to detect Normal, Suspect, and Fraudulent transactions for their future transactions. These rules are based on the analysis of each client's behavior generated by the agent Generate Bank Transactions.
+
+**Client 509**
+
+* Normal transactions: 
+	+ Weekly transactions < 3
+	+ Average transaction amount < 50,000
+	+ Transactions in usual locations (Dakar, Saint-Louis, Fatick, Kédougou, Kolda, Bambey, Rufisque)
+	+ Transactions during usual hours (10:00-16:00)
+	+ Status of operation: 'Validé'
+* Suspect transactions:
+	+ Multiple transactions in a short period (< 1 hour)
+	+ Transactions in unusual locations (outside Senegal)
+	+ Transactions with high amounts (> 250,000)
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions:
+	+ Transactions with extremely high amounts (> 1,000,000)
+	+ Transactions in multiple locations in a short period (< 1 hour)
+
+**Client 510**
+
+* Normal transactions: 
+	+ Weekly transactions < 4
+	+ Average transaction amount < 75,000
+	+ Transactions in usual locations (Thiès, Tambacounda, Diourbel, Ziguinchor, Kaffrine, Podor, Louga, Diamniadio, Bakel)
+	+ Transactions during usual hours (08:00-14:00)
+	+ Status of operation: 'Validé'
+* Suspect transactions:
+	+ Multiple transactions in a short period (< 1 hour)
+	+ Transactions in unusual locations (outside Senegal)
+	+ Transactions with high amounts (> 150,000)
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions:
+	+ Transactions with extremely high amounts (> 1,500,000)
+	+ Transactions in multiple locations in a short period (< 1 hour)
+
+These rules will be recorded in a file 'Regles.txt'.
+
+The content of the 'Regles.txt' file will be:
+```
+Client 509:
+Normal: Weekly transactions < 3, Average transaction amount < 50,000, Usual locations, Usual hours, Status: 'Validé'
+Suspect: Multiple transactions in a short period, Unusual locations, High amounts, Multiple failed transactions
+Fraudulent: Extremely high amounts, Multiple locations in a short period
+
+Client 510:
+Normal: Weekly transactions < 4, Average transaction amount < 75,000, Usual locations, Usual hours, Status: 'Validé'
+Suspect: Multiple transactions in a short period, Unusual locations, High amounts, Multiple failed transactions
+Fraudulent: Extremely high amounts, Multiple locations in a short period
+```
+This set of rules will help identify Normal, Suspect, and Fraudulent transactions for each client and alert the system to take necessary actions.
+
+After analyzing the behavior of each client generated by the agent "Generate Bank Transactions", I have identified the following patterns and rules to detect normal, suspicious, and fraudulent transactions for each client.
+
+**Client 511**
+
+* Average transaction amount: 5,500
+* Average frequency of transactions: 2 transactions per week
+* Most frequent location: Dakar (70% of transactions)
+* Most frequent type of transaction: ATM (50% of transactions)
+* Most frequent status: Validé (80% of transactions)
+
+Rules for Client 511:
+
+* Normal transaction: Transaction amount < 5,000, location is Dakar or Saint-Louis, type is ATM or Paiement en ligne, status is Validé.
+* Suspicious transaction: Transaction amount > 10,000, location is Tambacounda or Ziguinchor, type is Paiement électronique, status is En attente or Echoué.
+* Fraudulent transaction: Transaction amount > 20,000, location is outside of Senegal, type is unknown, status is unknown.
+
+**Client 512**
+
+* Average transaction amount: 4,500
+* Average frequency of transactions: 1.5 transactions per week
+* Most frequent location: Dakar (60% of transactions)
+* Most frequent type of transaction: ATM (40% of transactions)
+* Most frequent status: Validé (70% of transactions)
+
+Rules for Client 512:
+
+* Normal transaction: Transaction amount < 4,000, location is Dakar or Saint-Louis, type is ATM or Paiement en ligne, status is Validé.
+* Suspicious transaction: Transaction amount > 8,000, location is Tambacounda or Ziguinchor, type is Paiement électronique, status is En attente or Echoué.
+* Fraudulent transaction: Transaction amount > 15,000, location is outside of Senegal, type is unknown, status is unknown.
+
+These rules will be saved in a file named 'Regles.txt' for future reference.
+
+Content of 'Regles.txt':
+
+```
+Client 511:
+Normal: amount < 5000, location = Dakar or Saint-Louis, type = ATM or Paiement en ligne, status = Validé
+Suspicious: amount > 10000, location = Tambacounda or Ziguinchor, type = Paiement électronique, status = En attente or Echoué
+Fraudulent: amount > 20000, location = outside of Senegal, type = unknown, status = unknown
+
+Client 512:
+Normal: amount < 4000, location = Dakar or Saint-Louis, type = ATM or Paiement en ligne, status = Validé
+Suspicious: amount > 8000, location = Tambacounda or Ziguinchor, type = Paiement électronique, status = En attente or Echoué
+Fraudulent: amount > 15000, location = outside of Senegal, type = unknown, status = unknown
+```
+
+After analyzing the transaction data, I have identified the behavior of each client and established rules to detect normal, suspect, and fraudulent transactions. The rules are as follows:
+
+**Client 513**
+
+* Normal transactions: 
+	+ Average monthly transactions: 5-7
+	+ Average transaction amount: 50,000 - 200,000 CFA
+	+ Frequent locations: Dakar, Thies, Ziguinchor, Richard Toll
+	+ Frequent transaction types: ATM, Online Payment, Electronic Payment
+	+ Frequent operation status: Validated
+* Suspect transactions:
+	+ Transactions above 500,000 CFA
+	+ Transactions in unusual locations (outside Senegal)
+	+ Multiple failed transactions in a short period
+* Fraudulent transactions:
+	+ Transactions above 1,000,000 CFA
+	+ Transactions in multiple locations within a short period (e.g., Dakar and Thies within 1 hour)
+	+ Multiple transactions with different operation statuses (e.g., Validated and Failed)
+
+**Client 514**
+
+* Normal transactions: 
+	+ Average monthly transactions: 4-6
+	+ Average transaction amount: 20,000 - 100,000 CFA
+	+ Frequent locations: Tambacounda, Diourbel, Kaolack, Louga
+	+ Frequent transaction types: Online Payment, Electronic Payment, ATM
+	+ Frequent operation status: Validated
+* Suspect transactions:
+	+ Transactions above 200,000 CFA
+	+ Transactions in unusual locations (outside Senegal)
+	+ Multiple failed transactions in a short period
+* Fraudulent transactions:
+	+ Transactions above 500,000 CFA
+	+ Transactions in multiple locations within a short period (e.g., Tambacounda and Diourbel within 1 hour)
+	+ Multiple transactions with different operation statuses (e.g., Validated and Failed)
+
+These rules will be saved in the 'Regles.txt' file for future reference.
+
+```
+Regles.txt
+Client 513:
+Normal: avg_monthly_transactions=5-7, avg_amount=50,000-200,000, frequent_locations=Dakar,Thies,Ziguinchor,Richard Toll, frequent_types=ATM,Online Payment,Electronic Payment, frequent_status=Validated
+Suspect: amount>500,000, unusual_locations, multiple_failed_transactions
+Fraud: amount>1,000,000, multiple_locations_short_period, multiple_statuses
+
+Client 514:
+Normal: avg_monthly_transactions=4-6, avg_amount=20,000-100,000, frequent_locations=Tambacounda,Diourbel,Kaolack,Louga, frequent_types=Online Payment,Electronic Payment,ATM, frequent_status=Validated
+Suspect: amount>200,000, unusual_locations, multiple_failed_transactions
+Fraud: amount>500,000, multiple_locations_short_period, multiple_statuses
+```
+
+These rules will help identify normal, suspect, and fraudulent transactions for each client, enabling more effective detection and prevention of fraudulent activities.
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have identified the following rules to detect normal, suspect, and fraudulent transactions for each client.
+
+**Client 515**
+
+* Normal transactions:
+	+ Average transaction amount: 50,000 - 150,000
+	+ Frequent locations: Dakar, Diourbel, Saint-Louis, Thies, Ziguinchor
+	+ Frequent transaction types: ATM, Online Payment, Electronic Payment
+	+ Frequent operation status: Validated
+	+ Frequent transaction intervals: 1-2 weeks
+* Suspect transactions:
+	+ Unusual locations: outside Senegal
+	+ Unusual transaction types: Cash Deposit, Wire Transfer
+	+ Unusual operation status: Pending, Failed
+	+ Unusual transaction amounts: < 10,000 or > 500,000
+	+ Unusual transaction intervals: < 1 hour or > 1 month
+* Fraudulent transactions:
+	+ Multiple failed transactions followed by a successful transaction
+	+ Transactions in quick succession (> 3 transactions in 1 hour)
+	+ Transactions with unusual payment methods (e.g. cash, wire transfer)
+
+**Client 516**
+
+* Normal transactions:
+	+ Average transaction amount: 40,000 - 120,000
+	+ Frequent locations: Dakar, Diourbel, Kaolack, Thies
+	+ Frequent transaction types: Online Payment, Electronic Payment, ATM
+	+ Frequent operation status: Validated
+	+ Frequent transaction intervals: 1-2 weeks
+* Suspect transactions:
+	+ Unusual locations: outside Senegal
+	+ Unusual transaction types: Cash Deposit, Wire Transfer
+	+ Unusual operation status: Pending, Failed
+	+ Unusual transaction amounts: < 10,000 or > 400,000
+	+ Unusual transaction intervals: < 1 hour or > 1 month
+* Fraudulent transactions:
+	+ Multiple failed transactions followed by a successful transaction
+	+ Transactions in quick succession (> 3 transactions in 1 hour)
+	+ Transactions with unusual payment methods (e.g. cash, wire transfer)
+
+These rules will be saved in a file named 'Regles.txt' for future reference.
+
+Note: These rules are based on the analysis of the provided data and may need to be adjusted as more data becomes available.
+
+Here is the outcome of the analysis of each client's behavior and the set of rules or strategies to detect normal, suspect, and fraudulent transactions for each client:
+
+**Client 517**
+
+* Average transaction amount per month: 250,000 FCFA
+* Most frequent transaction type: Online Payment
+* Most frequent location: Dakar
+* Average number of transactions per week: 2
+* Most frequent time of day: 10:00-12:00
+* Highest transaction amount: 2,500,000 FCFA
+* Lowest transaction amount: 8,000 FCFA
+
+Rules for detecting normal, suspect, and fraudulent transactions:
+
+* Normal: Transaction amount between 8,000 FCFA and 250,000 FCFA, location in Dakar or surrounding areas, transaction type is Online Payment or ATM, time of day between 10:00-12:00.
+* Suspect: Transaction amount above 250,000 FCFA or below 8,000 FCFA, location in unusual areas (e.g. Tambacounda, Podor), transaction type is Electronic Payment, time of day outside of 10:00-12:00.
+* Fraudulent: Multiple failed transactions in a short period of time, transaction amount above 1,000,000 FCFA, location in unusual areas (e.g. Tambacounda, Podor).
+
+**Client 518**
+
+* Average transaction amount per month: 500,000 FCFA
+* Most frequent transaction type: Electronic Payment
+* Most frequent location: Thies
+* Average number of transactions per week: 3
+* Most frequent time of day: 15:00-17:00
+* Highest transaction amount: 1,200,000 FCFA
+* Lowest transaction amount: 12,000 FCFA
+
+Rules for detecting normal, suspect, and fraudulent transactions:
+
+* Normal: Transaction amount between 12,000 FCFA and 500,000 FCFA, location in Thies or surrounding areas, transaction type is Electronic Payment or ATM, time of day between 15:00-17:00.
+* Suspect: Transaction amount above 500,000 FCFA or below 12,000 FCFA, location in unusual areas (e.g. Kaolack, Saint-Louis), transaction type is Online Payment, time of day outside of 15:00-17:00.
+* Fraudulent: Multiple failed transactions in a short period of time, transaction amount above 1,500,000 FCFA, location in unusual areas (e.g. Kaolack, Saint-Louis).
+
+These rules will be saved in a file named "Regles.txt" for future reference.
+
+The content of "Regles.txt" file will be:
+
+Client 517:
+Normal: 8,000 FCFA < amount < 250,000 FCFA, location in Dakar or surrounding areas, transaction type is Online Payment or ATM, time of day between 10:00-12:00.
+Suspect: amount > 250,000 FCFA or amount < 8,000 FCFA, location in unusual areas, transaction type is Electronic Payment, time of day outside of 10:00-12:00.
+Fraudulent: multiple failed transactions in a short period of time, amount > 1,000,000 FCFA, location in unusual areas.
+
+Client 518:
+Normal: 12,000 FCFA < amount < 500,000 FCFA, location in Thies or surrounding areas, transaction type is Electronic Payment or ATM, time of day between 15:00-17:00.
+Suspect: amount > 500,000 FCFA or amount < 12,000 FCFA, location in unusual areas, transaction type is Online Payment, time of day outside of 15:00-17:00.
+Fraudulent: multiple failed transactions in a short period of time, amount > 1,500,000 FCFA, location in unusual areas.
+
+Here is the analysis of each client's behavior and the detection rules for normal, suspect, and fraudulent transactions:
+
+**Client 519**
+
+* Average transactions per month: 4
+* Frequent locations: Dakar, Thies, Saint-Louis, Diourbel
+* Average transaction amount: 150,000
+* Most frequent transaction type: Online Payment
+* Most frequent operation status: Validated
+* Unusual behavior: Multiple failed ATM transactions before a successful one
+
+Detection rules:
+
+* Normal: Transactions with amounts between 10,000 and 500,000, in frequent locations, with online payment or electronic payment types, and validated operation status.
+* Suspect: Transactions with amounts above 500,000 or in unusual locations, or with multiple failed ATM transactions before a successful one.
+* Fraudulent: Transactions with amounts above 1,000,000 or with operation status failed after multiple attempts.
+
+**Client 520**
+
+* Average transactions per month: 3
+* Frequent locations: Ziguinchor, Kaolack, Matam, Louga
+* Average transaction amount: 200,000
+* Most frequent transaction type: Online Payment
+* Most frequent operation status: Validated
+* Unusual behavior: None
+
+Detection rules:
+
+* Normal: Transactions with amounts between 10,000 and 500,000, in frequent locations, with online payment or electronic payment types, and validated operation status.
+* Suspect: Transactions with amounts above 500,000 or in unusual locations.
+* Fraudulent: Transactions with amounts above 1,000,000 or with operation status failed.
+
+**Rules file (Regles.txt)**
+
+Client 519:
+Normal: (amount >= 10,000 and amount <= 500,000) and (location in [Dakar, Thies, Saint-Louis, Diourbel]) and (transaction_type in [Online Payment, Electronic Payment]) and (operation_status == Validated)
+Suspect: (amount > 500,000 or location not in [Dakar, Thies, Saint-Louis, Diourbel]) or (multiple failed ATM transactions before a successful one)
+Fraudulent: (amount > 1,000,000) or (operation_status == Failed after multiple attempts)
+
+Client 520:
+Normal: (amount >= 10,000 and amount <= 500,000) and (location in [Ziguinchor, Kaolack, Matam, Louga]) and (transaction_type in [Online Payment, Electronic Payment]) and (operation_status == Validated)
+Suspect: (amount > 500,000 or location not in [Ziguinchor, Kaolack, Matam, Louga])
+Fraudulent: (amount > 1,000,000) or (operation_status == Failed)
+
+Note: The rules file can be modified to fit the specific needs of the bank's fraud detection system.
+
+Here is the complete set of rules or strategies for each client to detect Normal, Suspect, and Fraudulent cases for their future transactions:
+
+**Client 521**
+
+* Normal:
+	+ Average transaction amount between 15000 and 300000 FCFA
+	+ Transactions in Dakar, Thiès, Tambacounda, Ziguinchor, Kolda, Kaolack, Bambey, Matam, Sédhiou, Bounkiling, and Dagana
+	+ Transactions during weekdays (Monday to Friday) between 09:00 and 17:00
+	+ ATM and payment transactions
+* Suspect:
+	+ Transactions in unusual regions (e.g., Saint-Louis, Diourbel, Fatick, Kaffrine, Goudiry, Kédougou, Podor, Tivaouane)
+	+ Transactions on weekends (Saturday and Sunday)
+	+ Multiple failed transactions before a successful one
+	+ Unusual transaction amounts (e.g., significantly higher or lower than average)
+* Fraud:
+	+ Multiple transactions in a short period (e.g., less than 1 hour) in different regions
+	+ Transactions with unusual transaction types (e.g., not ATM or payment)
+	+ Transactions with unusual status (e.g., En attente or Echoué)
+
+**Client 522**
+
+* Normal:
+	+ Average transaction amount between 10000 and 200000 FCFA
+	+ Transactions in Saint-Louis, Diourbel, Fatick, Kaffrine, Goudiry, Kédougou, Podor, and Tivaouane
+	+ Transactions during weekdays (Monday to Friday) between 09:00 and 17:00
+	+ ATM and payment transactions
+* Suspect:
+	+ Transactions in unusual regions (e.g., Dakar, Thiès, Tambacounda, Ziguinchor, Kolda, Kaolack, Bambey, Matam, Sédhiou, Bounkiling, and Dagana)
+	+ Transactions on weekends (Saturday and Sunday)
+	+ Multiple failed transactions before a successful one
+	+ Unusual transaction amounts (e.g., significantly higher or lower than average)
+* Fraud:
+	+ Multiple transactions in a short period (e.g., less than 1 hour) in different regions
+	+ Transactions with unusual transaction types (e.g., not ATM or payment)
+	+ Transactions with unusual status (e.g., En attente or Echoué)
+
+These rules will be saved in a file named 'Regles.txt'.
+
+Note: The rules are based on the analysis of the provided data and may need to be adjusted or refined as more data becomes available.
+
+Here is the content of the 'Regles.txt' file:
+
+Règles pour le client 523:
+- Transactions normales: montant moyen entre 15000 et 80000, intervalle de 1000, fréquence de localisation à Dakar, Thies, Saint-Louis, Kaolack, Ziguinchor, type de transaction habituel ATM, Online Payment, Electronic Payment, heure habituelle entre 08:00 et 17:00.
+- Transactions suspectes: montant supérieur à 80000, localisation inhabituelle, fréquence de localisation inhabituelle, heure inhabituelle.
+- Transactions frauduleuses: plusieurs transactions échouées avant une transaction réussie, montant très élevé, localisation très inhabituelle.
+
+Règles pour le client 524:
+- Transactions normales: montant moyen entre 6000 et 400000, intervalle de 1000, fréquence de localisation à Thies, Dakar, Diourbel, Tambacounda, Kolda, type de transaction habituel Online Payment, Electronic Payment, ATM, heure habituelle entre 13:00 et 17:00.
+- Transactions suspectes: montant supérieur à 400000, localisation inhabituelle, fréquence de localisation inhabituelle, heure inhabituelle.
+- Transactions frauduleuses: plusieurs transactions échouées avant une transaction réussie, montant très élevé, localisation très inhabituelle.
+
+Note: These rules are based on the analysis of the provided transactions and may need to be adjusted and refined as more data becomes available.
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have identified the following rules to detect normal, suspect, and fraudulent transactions for each client.
+
+**Client 525**
+
+* Normal transactions:
+	+ Frequency: 2-3 transactions per week
+	+ Location: Dakar, Thiès, Saint-Louis, Tambacounda, Diourbel, Ziguinchor, Kolda, Kaolack, Fatick, Kédougou
+	+ Amount: 5 000 - 12 000 000 FCFA
+	+ Time: 10:30 - 16:45
+	+ Type: ATM, Paiement en ligne, Paiement électronique
+	+ Status: Validé
+* Suspect transactions:
+	+ Frequency: more than 3 transactions per week
+	+ Location: outside of usual locations
+	+ Amount: outside of usual range
+	+ Time: unusual hours
+	+ Type: multiple failed transactions before a successful one
+	+ Status: En attente or Echoué
+* Fraudulent transactions:
+	+ Frequency: multiple transactions in a short period
+	+ Location: unusual locations or multiple locations in a short period
+	+ Amount: extremely high or low
+	+ Time: unusual hours or multiple transactions at the same time
+	+ Type: unusual type of transaction
+	+ Status: multiple failed transactions before a successful one
+
+**Client 526**
+
+* Normal transactions:
+	+ Frequency: 2-3 transactions per week
+	+ Location: Dakar, Thiès, Saint-Louis, Tambacounda, Diourbel, Ziguinchor, Kolda, Kaolack, Fatick, Kédougou
+	+ Amount: 6 500 - 14 000 000 FCFA
+	+ Time: 08:00 - 18:00
+	+ Type: ATM, Paiement en ligne, Paiement électronique
+	+ Status: Validé
+* Suspect transactions:
+	+ Frequency: more than 3 transactions per week
+	+ Location: outside of usual locations
+	+ Amount: outside of usual range
+	+ Time: unusual hours
+	+ Type: multiple failed transactions before a successful one
+	+ Status: En attente or Echoué
+* Fraudulent transactions:
+	+ Frequency: multiple transactions in a short period
+	+ Location: unusual locations or multiple locations in a short period
+	+ Amount: extremely high or low
+	+ Time: unusual hours or multiple transactions at the same time
+	+ Type: unusual type of transaction
+	+ Status: multiple failed transactions before a successful one
+
+These rules will be recorded in a file named "Regles.txt" for each client.
+
+Regles.txt:
+```
+Client 525:
+Normal: freq=2-3/week, loc=Dakar,Thiès,Saint-Louis,Tambacounda,Diourbel,Ziguinchor,Kolda,Kaolack,Fatick,Kédougou, amt=5000-12000000, time=10:30-16:45, type=ATM,Paiement en ligne,Paiement électronique, status=Validé
+Suspect: freq>3/week, loc!=usual, amt!=usual, time!=usual, type=multiple failed before successful, status=En attente or Echoué
+Fraud: freq=multiple/short period, loc=unusual or multiple/short period, amt=extremely high or low, time=unusual or multiple/short period, type=unusual, status=multiple failed before successful
+
+Client 526:
+Normal: freq=2-3/week, loc=Dakar,Thiès,Saint-Louis,Tambacounda,Diourbel,Ziguinchor,Kolda,Kaolack,Fatick,Kédougou, amt=6500-14000000, time=08:00-18:00, type=ATM,Paiement en ligne,Paiement électronique, status=Validé
+Suspect: freq>3/week, loc!=usual, amt!=usual, time!=usual, type=multiple failed before successful, status=En attente or Echoué
+Fraud: freq=multiple/short period, loc=unusual or multiple/short period, amt=extremely high or low, time=unusual or multiple/short period, type=unusual, status=multiple failed before successful
+```
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have identified patterns and trends that can be used to detect normal, suspicious, and fraudulent transactions. Here are the rules and strategies for each client:
+
+**Client 527**
+
+* Normal transactions:
+	+ Frequency: 2-3 transactions per week
+	+ Locations: Dakar, Thies, Tambacounda
+	+ Amounts: 1,000 FCFA to 1,500,000 FCFA
+	+ Types: ATM, payment online, payment electronic
+	+ Hours: 10:00 to 17:00
+* Suspicious transactions:
+	+ Unusual location: outside of Senegal
+	+ Unusual amount: > 5,000,000 FCFA
+	+ Unusual type: cash withdrawal > 1,000,000 FCFA
+	+ Unusual hour: outside of 10:00 to 17:00
+* Fraudulent transactions:
+	+ Multiple failed transactions in a short period
+	+ Unusual sequence of transactions (e.g., multiple large transactions in a row)
+
+**Client 528**
+
+* Normal transactions:
+	+ Frequency: 2-3 transactions per week
+	+ Locations: Dakar, Thies, Tambacounda
+	+ Amounts: 80,000 FCFA to 9,000,000 FCFA
+	+ Types: payment electronic, payment online, ATM
+	+ Hours: 11:00 to 16:00
+* Suspicious transactions:
+	+ Unusual location: outside of Senegal
+	+ Unusual amount: > 10,000,000 FCFA
+	+ Unusual type: cash withdrawal > 2,000,000 FCFA
+	+ Unusual hour: outside of 11:00 to 16:00
+* Fraudulent transactions:
+	+ Multiple failed transactions in a short period
+	+ Unusual sequence of transactions (e.g., multiple large transactions in a row)
+
+These rules and strategies will be saved in a file named 'Regles.txt' for future reference and updating.
+
+Regles.txt:
+```
+Client 527:
+Normal: 2-3 transactions/week, Dakar/Thies/Tambacounda, 1,000-1,500,000 FCFA, ATM/payment online/payment electronic, 10:00-17:00
+Suspicious: unusual location, > 5,000,000 FCFA, cash withdrawal > 1,000,000 FCFA, outside 10:00-17:00
+Fraudulent: multiple failed transactions, unusual sequence of transactions
+
+Client 528:
+Normal: 2-3 transactions/week, Dakar/Thies/Tambacounda, 80,000-9,000,000 FCFA, payment electronic/payment online/ATM, 11:00-16:00
+Suspicious: unusual location, > 10,000,000 FCFA, cash withdrawal > 2,000,000 FCFA, outside 11:00-16:00
+Fraudulent: multiple failed transactions, unusual sequence of transactions
+```
+
+Rules for Client 529:
+
+* Normal Transaction: 
+  - Average transaction amount: 50,000 - 150,000
+  - Frequent locations: Dakar, Thies, Saint-Louis, Ziguinchor, Richard-Toll
+  - Frequent transaction types: ATM, Online Payment, Electronic Payment
+  - Frequent operation status: Validated
+  - Time of day: 08:30 - 17:00
+* Suspect Transaction:
+  - Unusual location: outside of Senegal or unusual region
+  - Unusual transaction type: Cash Deposit or Wire Transfer
+  - Unusual operation status: Pending or Echoué
+  - Unusual time of day: 00:00 - 06:00 or 20:00 - 23:59
+  - Multiple failed transactions before a successful one
+* Fraudulent Transaction:
+  - Large amount: above 1,000,000
+  - Unusual frequency: multiple transactions in a short period
+  - Unusual location: abroad or unusual region
+  - Unusual transaction type: Cash Withdrawal or Cardless Withdrawal
+
+Rules for Client 530:
+
+* Normal Transaction: 
+  - Average transaction amount: 30,000 - 850,000
+  - Frequent locations: Dakar, Tambacounda, Kaolack, Kolda, Fatick, Louga, Matam, Kaffrine, Kédougou
+  - Frequent transaction types: Online Payment, Electronic Payment, ATM
+  - Frequent operation status: Validated
+  - Time of day: 10:25 - 16:05
+* Suspect Transaction:
+  - Unusual location: outside of Senegal or unusual region
+  - Unusual transaction type: Cash Deposit or Wire Transfer
+  - Unusual operation status: Pending or Echoué
+  - Unusual time of day: 00:00 - 06:00 or 20:00 - 23:59
+  - Multiple failed transactions before a successful one
+* Fraudulent Transaction:
+  - Large amount: above 2,000,000
+  - Unusual frequency: multiple transactions in a short period
+  - Unusual location: abroad or unusual region
+  - Unusual transaction type: Cash Withdrawal or Cardless Withdrawal
+
+These rules will be saved in a file named 'Regles.txt'.
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have established a set of rules for each client to identify their future transactions as normal, suspect, or fraudulent. Here are the rules:
+
+**Client 531**
+- Normal: transactions with amounts between 1000 and 20000, in Dakar, Thiès, Saint-Louis, or Ziguinchor, between 09:00 and 16:00, with a frequency of 1-2 transactions per week.
+- Suspect: transactions with amounts above 20000, or in unusual locations (e.g. Tambacounda, Kaolack), or with a frequency of more than 2 transactions per week.
+- Fraudulent: multiple failed transactions followed by a successful one, or transactions with the same amount and location in a short period of time.
+
+**Client 532**
+- Normal: transactions with amounts between 1500 and 18000, in Dakar, Diourbel, Thiès, or Saint-Louis, between 08:00 and 16:00, with a frequency of 1-2 transactions per week.
+- Suspect: transactions with amounts above 18000, or in unusual locations (e.g. Ziguinchor, Tambacounda), or with a frequency of more than 2 transactions per week.
+- Fraudulent: multiple failed transactions followed by a successful one, or transactions with the same amount and location in a short period of time.
+
+These rules will be saved in a file named 'Regles.txt' with the following format:
+
+Code clients;Normal transactions;Suspect transactions;Fraudulent transactions
+531;1000-20000, Dakar, Thiès, Saint-Louis, Ziguinchor, 09:00-16:00, 1-2/week;above 20000, unusual locations, more than 2/week;multiple failed transactions, same amount and location in a short period
+532;1500-18000, Dakar, Diourbel, Thiès, Saint-Louis, 08:00-16:00, 1-2/week;above 18000, unusual locations, more than 2/week;multiple failed transactions, same amount and location in a short period
+
+The content of the "Regles.txt" file is as follows:
+
+**Client 533**
+Normal: 20000-60000, ATM or Payment in line, Dakar, Thiès, or Touba, 2-3 times a week
+Suspicious: above 80000 or below 10000, Electronic payment, Saint-Louis, more than 3 times a week
+Fraudulent: above 150000, ATM, outside Senegal, more than 5 times a week
+
+**Client 534**
+Normal: 25000-70000, ATM or Electronic payment, Dakar, Thiès, or Touba, 2-3 times a week
+Suspicious: above 90000 or below 15000, Payment in line, Saint-Louis, more than 3 times a week
+Fraudulent: above 200000, Electronic payment, outside Senegal, more than 5 times a week
+
+Here is the outcome of the analysis and the set of rules for each client to detect Normal, Suspect, and Fraudulent cases for their future transactions.
+
+**Client 535**
+
+* Average monthly transactions: 5
+* Average weekly transactions: 1.25
+* Frequent locations: Dakar, Diourbel, Kaolack, Louga, Kedougou, Velingara
+* Mean transaction amount: 54154.17
+* Standard deviation of transaction amounts: 434311.19
+* Common transaction types: ATM, Electronic Payment
+* Common operation status: Validated, Failed
+* Common hours of transactions: 10:30, 15:45, 11:20, 14:30
+
+Rules for Client 535:
+
+* If the transaction is an ATM withdrawal and the amount is less than 5000, it is Normal.
+* If the transaction is an Electronic Payment and the amount is between 1000000 and 2000000, it is Suspect.
+* If the transaction is an Electronic Payment and the amount is greater than 2500000, it is Fraudulent.
+* If the transaction is in a location not in the frequent locations list, it is Suspect.
+* If the transaction is at an unusual hour (outside of 10:00-16:00), it is Suspect.
+
+**Client 536**
+
+* Average monthly transactions: 4
+* Average weekly transactions: 1
+* Frequent locations: Thies, Ziguinchor, Kolda, Fatick, Goudiry, Bambey, Bounkiling
+* Mean transaction amount: 58154.17
+* Standard deviation of transaction amounts: 514311.19
+* Common transaction types: Online Payment, Electronic Payment
+* Common operation status: Pending, Failed
+* Common hours of transactions: 15:45, 14:30, 11:20, 10:45
+
+Rules for Client 536:
+
+* If the transaction is an Online Payment and the amount is less than 60000, it is Normal.
+* If the transaction is an Electronic Payment and the amount is between 1500000 and 2500000, it is Suspect.
+* If the transaction is an Electronic Payment and the amount is greater than 3000000, it is Fraudulent.
+* If the transaction is in a location not in the frequent locations list, it is Suspect.
+* If the transaction is at an unusual hour (outside of 10:00-16:00), it is Suspect.
+
+These rules will be saved in the 'Regles.txt' file.
+
+Regles.txt:
+Client 535:
+    - Normal: ATM withdrawal < 5000
+    - Suspect: Electronic Payment between 1000000 and 2000000, unusual location, unusual hour
+    - Fraudulent: Electronic Payment > 2500000
+Client 536:
+    - Normal: Online Payment < 60000
+    - Suspect: Electronic Payment between 1500000 and 2500000, unusual location, unusual hour
+    - Fraudulent: Electronic Payment > 3000000
+
+Here is the content of the "Regles.txt" file:
+
+**Client 537**
+
+* Normal transactions:
+	+ Weekly frequency of 2-3 ATM transactions with an average amount of 2500-3500 in Dakar, Thies, or Touba.
+	+ Monthly frequency of 1-2 online payment transactions with an average amount of 35000-55000 in Thies or Saint-Louis.
+* Suspicious transactions:
+	+ Unusual location (outside of Dakar, Thies, Touba, or Saint-Louis) for ATM transactions.
+	+ Multiple failed online payment transactions (more than 2) in a short period (less than 1 hour).
+	+ Large transaction amount (more than 100000) for online payments.
+* Fraudulent transactions:
+	+ Multiple ATM transactions (more than 5) in a short period (less than 1 hour) in different locations.
+	+ Online payment transactions with an unusual time of day (outside of 9am-5pm).
+
+**Client 538**
+
+* Normal transactions:
+	+ Weekly frequency of 1-2 ATM transactions with an average amount of 2500-3000 in Ziguinchor, Dakar, or Kaolack.
+	+ Monthly frequency of 1 online payment transaction with an average amount of 15000-75000 in Tambacounda or Kaolack.
+* Suspicious transactions:
+	+ Unusual location (outside of Ziguinchor, Dakar, Kaolack, or Tambacounda) for ATM transactions.
+	+ Multiple failed online payment transactions (more than 2) in a short period (less than 1 hour).
+	+ Large transaction amount (more than 100000) for online payments.
+* Fraudulent transactions:
+	+ Multiple ATM transactions (more than 5) in a short period (less than 1 hour) in different locations.
+	+ Online payment transactions with an unusual time of day (outside of 9am-5pm).
+
+These rules are based on the client's historical transaction data and are designed to detect normal, suspicious, and fraudulent transactions. The rules consider factors such as transaction frequency, location, amount, and time of day to identify potential anomalies.
+
+Here is the outcome of the analysis and the set of rules for each client to detect Normal, Suspect, and Fraudulent transactions:
+
+**Client 539**
+
+* Average monthly transactions: 3
+* Average weekly transactions: 1
+* Frequent locations: Dakar, Thies, Saint-Louis
+* Average transaction amount: 25000
+* Transaction interval: 10000 - 50000
+* Habitual transaction types: ATM, Online payment
+* Habitual transaction hours: 10:00 - 15:30
+* Status operation: Mostly Validé, some En attente and Echoué
+
+Rules for Client 539:
+
+* Normal: Transaction amount between 10000 - 50000, location in Dakar, Thies, or Saint-Louis, transaction type ATM or Online payment, transaction hour between 10:00 - 15:30, status Validé.
+* Suspect: Transaction amount above 50000 or below 10000, location outside Dakar, Thies, or Saint-Louis, transaction type Electronic payment, transaction hour outside 10:00 - 15:30, status En attente or Echoué.
+* Fraud: Multiple transactions in a short period, transaction amount above 150000, location in an unusual region, transaction type Electronic payment, status Echoué.
+
+**Client 540**
+
+* Average monthly transactions: 3
+* Average weekly transactions: 1
+* Frequent locations: Dakar, Thies, Kolda
+* Average transaction amount: 35000
+* Transaction interval: 15000 - 70000
+* Habitual transaction types: Online payment, ATM
+* Habitual transaction hours: 10:00 - 14:00
+* Status operation: Mostly En attente, some Validé and Echoué
+
+Rules for Client 540:
+
+* Normal: Transaction amount between 15000 - 70000, location in Dakar, Thies, or Kolda, transaction type Online payment or ATM, transaction hour between 10:00 - 14:00, status En attente or Validé.
+* Suspect: Transaction amount above 70000 or below 15000, location outside Dakar, Thies, or Kolda, transaction type Electronic payment, transaction hour outside 10:00 - 14:00, status Echoué.
+* Fraud: Multiple transactions in a short period, transaction amount above 200000, location in an unusual region, transaction type Electronic payment, status Echoué.
+
+**Regles.txt**
+
+Client 539:
+Normal: 10000-50000, Dakar|Thies|Saint-Louis, ATM|Online payment, 10:00-15:30, Validé
+Suspect: <10000|>50000, !Dakar|Thies|Saint-Louis, Electronic payment, !10:00-15:30, En attente|Echoué
+Fraud: Multiple transactions, >150000, unusual region, Electronic payment, Echoué
+
+Client 540:
+Normal: 15000-70000, Dakar|Thies|Kolda, Online payment|ATM, 10:00-14:00, En attente|Validé
+Suspect: <15000|>70000, !Dakar|Thies|Kolda, Electronic payment, !10:00-14:00, Echoué
+Fraud: Multiple transactions, >200000, unusual region, Electronic payment, Echoué
+
+After analyzing the behavior of each client generated by the agent "Generate Bank Transactions", I have identified the following rules to detect normal, suspicious, and fraudulent transactions for each client.
+
+**Client 541**
+
+* Normal transactions: 
+  - Average transaction amount: 25000 - 65000
+  - Frequent locations: Dakar, Thies, Saint-Louis
+  - Frequent transaction types: ATM, Online Payment, Electronic Payment
+  - Frequent times: 09:00 - 15:00
+  - Operation status: Validated
+* Suspicious transactions: 
+  - Unusual locations: Tambacounda, Kédougou
+  - Unusual transaction amounts: 80000, 100000
+  - Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+  - Transactions in unusual locations with high amounts
+  - Multiple transactions in a short period with high amounts
+
+**Client 542**
+
+* Normal transactions: 
+  - Average transaction amount: 18000 - 40000
+  - Frequent locations: Ziguinchor, Kolda, Kaolack
+  - Frequent transaction types: Online Payment, Electronic Payment, ATM
+  - Frequent times: 13:00 - 17:00
+  - Operation status: Validated
+* Suspicious transactions: 
+  - Unusual locations: Diourbel
+  - Unusual transaction amounts: 4500, 120000
+  - Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+  - Transactions in unusual locations with high amounts
+  - Multiple transactions in a short period with high amounts
+
+These rules will be stored in a file named "Regles.txt" for future reference.
+
+Content of "Regles.txt":
+
+541;Normal;25000-65000;Dakar,Thies,Saint-Louis;ATM,Online Payment,Electronic Payment;09:00-15:00;Validated
+541;Suspicious;Tambacounda,Kédougou;80000,100000;Multiple failed transactions
+541;Fraudulent;Unusual locations with high amounts;Multiple transactions in a short period with high amounts
+
+542;Normal;18000-40000;Ziguinchor,Kolda,Kaolack;Online Payment,Electronic Payment,ATM;13:00-17:00;Validated
+542;Suspicious;Diourbel;4500,120000;Multiple failed transactions
+542;Fraudulent;Unusual locations with high amounts;Multiple transactions in a short period with high amounts
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have developed a set of rules for each client to identify their future transactions as normal, suspect, or fraudulent. These rules are based on the client's transaction history, including the number of transactions per month or week, frequent locations, frequency of localization, average amount, interval of transaction amounts, types of habitual transactions, habitual hours, and operation status.
+
+Here are the rules for each client:
+
+**Client 543**
+
+* Normal transactions: 
+	+ ATM transactions in Dakar, Saint-Louis, or Ziguinchor with amounts between 1000 and 50000.
+	+ Online payments in Dakar, Saint-Louis, or Ziguinchor with amounts between 50000 and 80000.
+	+ Electronic payments in Dakar, Saint-Louis, or Ziguinchor with amounts between 80000 and 100000.
+* Suspect transactions: 
+	+ ATM transactions in unusual locations (e.g., Tambacounda, Kolda) with amounts between 1000 and 20000.
+	+ Online payments or electronic payments with multiple failed attempts before a successful transaction.
+* Fraudulent transactions: 
+	+ Transactions with amounts exceeding 100000.
+	+ Transactions in unusual locations (e.g., outside Senegal) or at unusual times (e.g., late at night).
+
+**Client 544**
+
+* Normal transactions: 
+	+ ATM transactions in Dakar, Diourbel, or Matam with amounts between 1000 and 30000.
+	+ Online payments in Dakar, Diourbel, or Matam with amounts between 30000 and 60000.
+	+ Electronic payments in Dakar, Diourbel, or Matam with amounts between 60000 and 90000.
+* Suspect transactions: 
+	+ ATM transactions in unusual locations (e.g., Thies, Kebemer) with amounts between 1000 and 20000.
+	+ Online payments or electronic payments with multiple failed attempts before a successful transaction.
+* Fraudulent transactions: 
+	+ Transactions with amounts exceeding 90000.
+	+ Transactions in unusual locations (e.g., outside Senegal) or at unusual times (e.g., late at night).
+
+These rules will be saved in a file named 'Regles.txt' for future reference.
+
+Note: These rules are based on the limited transaction data provided and may need to be adjusted or refined as more data becomes available.
+
+After analyzing the behavior of each client generated by the agent "Generate Bank Transactions", I have identified the following rules to detect normal, suspicious, and fraudulent transactions for each client. These rules will be stored in a file named "Regles.txt".
+
+**Client 545**
+
+* Normal transactions:
+	+ Average monthly transactions: 4
+	+ Average transaction amount: 75,000 FCFA
+	+ Frequent locations: Dakar, Thiès, Saint-Louis, Tambacounda
+	+ Frequent transaction types: ATM, online payment, electronic payment
+	+ Frequent operation status: Validated
+* Suspicious transactions:
+	+ Unusual locations: Outside of Senegal
+	+ Unusual transaction amounts: > 1,000,000 FCFA or < 1,000 FCFA
+	+ Unusual transaction types: Cash withdrawals > 5 in a day
+	+ Unusual operation status: Multiple failed transactions in a row
+* Fraudulent transactions:
+	+ Transactions in unusual locations and unusual amounts
+	+ Multiple transactions in a short period of time (> 5 transactions in 1 hour)
+
+**Client 546**
+
+* Normal transactions:
+	+ Average monthly transactions: 4
+	+ Average transaction amount: 65,000 FCFA
+	+ Frequent locations: Dakar, Thiès, Saint-Louis, Tambacounda
+	+ Frequent transaction types: ATM, online payment, electronic payment
+	+ Frequent operation status: Validated
+* Suspicious transactions:
+	+ Unusual locations: Outside of Senegal
+	+ Unusual transaction amounts: > 900,000 FCFA or < 1,000 FCFA
+	+ Unusual transaction types: Cash withdrawals > 5 in a day
+	+ Unusual operation status: Multiple failed transactions in a row
+* Fraudulent transactions:
+	+ Transactions in unusual locations and unusual amounts
+	+ Multiple transactions in a short period of time (> 5 transactions in 1 hour)
+
+These rules will be used to identify normal, suspicious, and fraudulent transactions for each client. The rules will be regularly updated based on new transaction data to improve the accuracy of the detection system.
+
+Here is the complete set of rules or strategies for each client to detect normal, suspicious, and fraudulent transactions for their future transactions.
+
+**Client 547**
+
+* Normal transaction rules:
+	+ Average transaction amount: 25000 - 60000
+	+ Frequent locations: Dakar, Saint-Louis, Thies, Tambacounda, Kolda
+	+ Frequent transaction types: ATM, Online Payment, Electronic Payment
+	+ Frequent transaction hours: 09:30 - 16:20
+* Suspicious transaction rules:
+	+ Unusual locations: Kaolack, Ziguinchor
+	+ Unusual transaction types: Multiple failed Electronic Payments
+	+ Unusual transaction hours: 12:00, 14:15
+* Fraudulent transaction rules:
+	+ Transaction amount > 80000
+	+ Multiple transactions in a short period of time (e.g., 2 transactions in 1 hour)
+	+ Unusual location combinations (e.g., Dakar and Kolda in 1 hour)
+
+**Client 548**
+
+* Normal transaction rules:
+	+ Average transaction amount: 1500 - 50000
+	+ Frequent locations: Dakar, Saint-Louis, Kaolack, Tambacounda
+	+ Frequent transaction types: ATM, Online Payment, Electronic Payment
+	+ Frequent transaction hours: 09:30 - 16:20
+* Suspicious transaction rules:
+	+ Unusual locations: Ziguinchor
+	+ Unusual transaction types: Multiple failed Online Payments
+	+ Unusual transaction hours: 10:10, 15:20
+* Fraudulent transaction rules:
+	+ Transaction amount > 70000
+	+ Multiple transactions in a short period of time (e.g., 2 transactions in 1 hour)
+	+ Unusual location combinations (e.g., Dakar and Kaolack in 1 hour)
+
+These rules will be recorded in the 'Regles.txt' file for future reference.
+
+Note: These rules are based on the provided dataset and may need to be adjusted or refined as more data becomes available.
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have developed a set of rules to detect normal, suspicious, and fraudulent transactions for each client.
+
+**Client 549:**
+
+* Normal transactions: 
+  - Average transaction amount: 20,000 - 50,000
+  - Frequent locations: Dakar, Diourbel, Thies, Kedougou, Kaffrine
+  - Common transaction types: ATM, Online Payment
+  - Usual transaction hours: 10:00 - 15:30
+  - Successful transaction status: Validé
+* Suspicious transactions: 
+  - Unusual locations: Tambacounda, Ziguinchor
+  - Higher transaction amounts: > 75,000
+  - Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+  - Transactions in unusual locations with high amounts (> 100,000)
+  - Multiple failed transactions in a short period
+
+**Client 550:**
+
+* Normal transactions: 
+  - Average transaction amount: 50,000 - 150,000
+  - Frequent locations: Saint-Louis, Kaolack, Matam, Sedhiou, Vélingara
+  - Common transaction types: Online Payment, Electronic Payment
+  - Usual transaction hours: 09:00 - 11:00
+  - Successful transaction status: Validé
+* Suspicious transactions: 
+  - Unusual locations: Fatick, Bambey, Louga
+  - Higher transaction amounts: > 200,000
+  - Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+  - Transactions in unusual locations with high amounts (> 250,000)
+  - Multiple failed transactions in a short period
+
+These rules will be saved in a file named 'Regles.txt' for future reference.
+
+**Regles.txt:**
+
+549;
+Normal: 20,000 - 50,000, Dakar, Diourbel, Thies, Kedougou, Kaffrine, ATM, Online Payment, 10:00 - 15:30, Validé
+Suspicious: Tambacounda, Ziguinchor, > 75,000, multiple failed transactions
+Fraudulent: unusual locations, > 100,000, multiple failed transactions
+
+550;
+Normal: 50,000 - 150,000, Saint-Louis, Kaolack, Matam, Sedhiou, Vélingara, Online Payment, Electronic Payment, 09:00 - 11:00, Validé
+Suspicious: Fatick, Bambey, Louga, > 200,000, multiple failed transactions
+Fraudulent: unusual locations, > 250,000, multiple failed transactions
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have identified the following patterns and rules to detect normal, suspicious, and fraudulent transactions.
+
+**Client 551**
+
+* Average monthly transactions: 4
+* Average transaction amount: 42,500
+* Most frequent location: Dakar (3 transactions)
+* Most frequent transaction type: ATM (3 transactions)
+* Most frequent status: Validé (5 transactions)
+* Average transaction interval: 15 days
+* Rule 1: If transaction amount > 50,000 and location is not Dakar, mark as suspicious.
+* Rule 2: If transaction type is Electronic payment and status is In Progress, mark as normal.
+* Rule 3: If transaction interval < 5 days and transaction amount > 10,000, mark as fraudulent.
+
+**Client 552**
+
+* Average monthly transactions: 4
+* Average transaction amount: 45,000
+* Most frequent location: Dakar (2 transactions)
+* Most frequent transaction type: ATM (2 transactions)
+* Most frequent status: Validé (4 transactions)
+* Average transaction interval: 20 days
+* Rule 1: If transaction amount > 60,000 and location is not Dakar, mark as suspicious.
+* Rule 2: If transaction type is Paiement en ligne and status is Failed, mark as normal.
+* Rule 3: If transaction interval < 10 days and transaction amount > 20,000, mark as fraudulent.
+
+**Rules for all clients**
+
+* If transaction amount > 100,000, mark as suspicious.
+* If transaction type is Electronic payment and status is Validé, mark as normal.
+* If transaction interval < 5 days and transaction amount > 5,000, mark as fraudulent.
+
+These rules will be saved in a file named 'Regles.txt' and will be used to detect normal, suspicious, and fraudulent transactions for each client.
+
+The content of the 'Regles.txt' file is as follows:
+
+```
+Client 551:
+Rule 1: If transaction amount > 50,000 and location is not Dakar, mark as suspicious.
+Rule 2: If transaction type is Electronic payment and status is In Progress, mark as normal.
+Rule 3: If transaction interval < 5 days and transaction amount > 10,000, mark as fraudulent.
+
+Client 552:
+Rule 1: If transaction amount > 60,000 and location is not Dakar, mark as suspicious.
+Rule 2: If transaction type is Paiement en ligne and status is Failed, mark as normal.
+Rule 3: If transaction interval < 10 days and transaction amount > 20,000, mark as fraudulent.
+
+General Rules:
+Rule 1: If transaction amount > 100,000, mark as suspicious.
+Rule 2: If transaction type is Electronic payment and status is Validé, mark as normal.
+Rule 3: If transaction interval < 5 days and transaction amount > 5,000, mark as fraudulent.
+```
+
+These rules can be used to detect normal, suspicious, and fraudulent transactions for each client and will be updated regularly to adapt to changing behavior and patterns.
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have identified the following rules to detect normal, suspicious, and fraudulent transactions.
+
+**Client 1001**
+
+* Normal transactions: 
+  - Average transaction amount: 125,500
+  - Frequent locations: Dakar, Thies, Tambacounda
+  - Frequent transaction types: ATM, Online Payment, Electronic Payment
+  - Frequent transaction hours: 09:00, 10:30, 15:45
+  - Rule: If a transaction is within 20% of the average amount, in a frequent location, and during a frequent hour, it is normal.
+
+* Suspicious transactions:
+  - Unusual locations: Kolda, Saint-Louis, Fatick
+  - Unusual transaction types: Multiple failed transactions before a successful one
+  - Unusual transaction hours: Early morning or late evening
+  - Rule: If a transaction is in an unusual location, or has an unusual transaction type or hour, it is suspicious.
+
+* Fraudulent transactions:
+  - Transactions with amounts significantly higher than the average amount
+  - Transactions with multiple failed attempts before a successful one
+  - Transactions in unusual locations with unusual transaction types
+  - Rule: If a transaction has an amount significantly higher than the average, or has multiple failed attempts before a successful one, or is in an unusual location with an unusual transaction type, it is fraudulent.
+
+**Client 1002**
+
+* Normal transactions: 
+  - Average transaction amount: 103,750
+  - Frequent locations: Dakar, Thies, Tambacounda
+  - Frequent transaction types: ATM, Online Payment, Electronic Payment
+  - Frequent transaction hours: 12:00, 14:00, 09:30
+  - Rule: If a transaction is within 20% of the average amount, in a frequent location, and during a frequent hour, it is normal.
+
+* Suspicious transactions:
+  - Unusual locations: Kolda, Saint-Louis, Fatick
+  - Unusual transaction types: Multiple failed transactions before a successful one
+  - Unusual transaction hours: Early morning or late evening
+  - Rule: If a transaction is in an unusual location, or has an unusual transaction type or hour, it is suspicious.
+
+* Fraudulent transactions:
+  - Transactions with amounts significantly higher than the average amount
+  - Transactions with multiple failed attempts before a successful one
+  - Transactions in unusual locations with unusual transaction types
+  - Rule: If a transaction has an amount significantly higher than the average, or has multiple failed attempts before a successful one, or is in an unusual location with an unusual transaction type, it is fraudulent.
+
+**Rules.txt**
+```
+Client 1001:
+  Normal: (amount > 100000 AND amount < 151000) AND (location == 'Dakar' OR location == 'Thies' OR location == 'Tambacounda') AND (transaction_type == 'ATM' OR transaction_type == 'Online Payment' OR transaction_type == 'Electronic Payment') AND (hour >= 09:00 AND hour <= 15:45)
+  Suspicious: (location == 'Kolda' OR location == 'Saint-Louis' OR location == 'Fatick') OR (transaction_type == 'Multiple failed transactions before a successful one') OR (hour < 09:00 OR hour > 15:45)
+  Fraudulent: amount > 200000 OR (transaction_type == 'Multiple failed transactions before a successful one' AND location == 'Unusual location')
+
+Client 1002:
+  Normal: (amount > 83000 AND amount < 124500) AND (location == 'Dakar' OR location == 'Thies' OR location == 'Tambacounda') AND (transaction_type == 'ATM' OR transaction_type == 'Online Payment' OR transaction_type == 'Electronic Payment') AND (hour >= 12:00 AND hour <= 14:00)
+  Suspicious: (location == 'Kolda' OR location == 'Saint-Louis' OR location == 'Fatick') OR (transaction_type == 'Multiple failed transactions before a successful one') OR (hour < 12:00 OR hour > 14:00)
+  Fraudulent: amount > 180000 OR (transaction_type == 'Multiple failed transactions before a successful one' AND location == 'Unusual location')
+```
+These rules will be used to detect normal, suspicious, and fraudulent transactions for each client.
+
+After analyzing the behavior of each client generated by the agent "Generate Bank Transactions", I have identified the following rules and strategies for each client to detect normal, suspicious, and fraudulent transactions.
+
+**Client 1003**
+
+* Normal transactions:
+	+ Average monthly transactions: 5
+	+ Average transaction amount: 50,000
+	+ Most frequent transaction type: ATM
+	+ Most frequent transaction location: Dakar
+	+ Most frequent transaction time: 10:00-12:00
+* Suspicious transactions:
+	+ Transactions with amounts exceeding 200,000
+	+ Transactions in unusual locations (outside of Dakar, Thiès, and Ziguinchor)
+	+ Transactions with multiple failed attempts before a successful one
+* Fraudulent transactions:
+	+ Transactions with amounts exceeding 500,000
+	+ Transactions in unusual locations (outside of Senegal)
+	+ Transactions with unusual transaction times (outside of 08:00-18:00)
+
+**Client 1004**
+
+* Normal transactions:
+	+ Average monthly transactions: 5
+	+ Average transaction amount: 70,000
+	+ Most frequent transaction type: Payment en ligne
+	+ Most frequent transaction location: Tambacounda
+	+ Most frequent transaction time: 12:00-14:00
+* Suspicious transactions:
+	+ Transactions with amounts exceeding 250,000
+	+ Transactions in unusual locations (outside of Tambacounda, Kaolack, and Louga)
+	+ Transactions with multiple failed attempts before a successful one
+* Fraudulent transactions:
+	+ Transactions with amounts exceeding 800,000
+	+ Transactions in unusual locations (outside of Senegal)
+	+ Transactions with unusual transaction times (outside of 08:00-18:00)
+
+These rules and strategies will be saved in a file named "Regles.txt" and will be used to detect normal, suspicious, and fraudulent transactions for each client.
+
+Content of "Regles.txt":
+```
+Client 1003:
+Normal: avg_monthly_transactions=5, avg_transaction_amount=50000, most_frequent_transaction_type=ATM, most_frequent_transaction_location=Dakar, most_frequent_transaction_time=10:00-12:00
+Suspicious: amount>200000, unusual_location, multiple_failed_attempts
+Fraudulent: amount>500000, unusual_location, unusual_transaction_time
+
+Client 1004:
+Normal: avg_monthly_transactions=5, avg_transaction_amount=70000, most_frequent_transaction_type=Paiement en ligne, most_frequent_transaction_location=Tambacounda, most_frequent_transaction_time=12:00-14:00
+Suspicious: amount>250000, unusual_location, multiple_failed_attempts
+Fraudulent: amount>800000, unusual_location, unusual_transaction_time
+```
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have identified the following rules to detect normal, suspect, and fraudulent transactions for each client.
+
+**Client 1005**
+
+* Normal transactions: 
+	+ Average transaction amount: 50,000 - 200,000 FCFA
+	+ Frequent locations: Dakar, Thies, Saint-Louis, Kaolack
+	+ Frequent transaction types: Online Payment, Electronic Payment
+	+ Frequent transaction times: 09:30 - 15:15
+* Suspect transactions:
+	+ Transactions outside of frequent locations (e.g., Tambacounda)
+	+ Transactions with amounts significantly higher or lower than the average
+	+ Transactions with unusual transaction types (e.g., ATM)
+* Fraudulent transactions:
+	+ Multiple failed transactions followed by a successful transaction
+	+ Transactions with unusual locations and times (e.g., Kédougou at 14h05)
+
+**Client 1006**
+
+* Normal transactions: 
+	+ Average transaction amount: 20,000 - 150,000 FCFA
+	+ Frequent locations: Ziguinchor, Kolda, Fatick, Bambey
+	+ Frequent transaction types: ATM, Online Payment
+	+ Frequent transaction times: 08:15 - 13:45
+* Suspect transactions:
+	+ Transactions outside of frequent locations (e.g., Richard-Toll)
+	+ Transactions with amounts significantly higher or lower than the average
+	+ Transactions with unusual transaction types (e.g., Electronic Payment)
+* Fraudulent transactions:
+	+ Multiple failed transactions followed by a successful transaction
+	+ Transactions with unusual locations and times (e.g., Cap-Skirring at 09:00)
+
+These rules will be recorded in a file named 'Regles.txt' for each client.
+
+**Regles.txt for Client 1005**
+
+Normal:
+average_amount = 50,000 - 200,000 FCFA
+frequent_locations = Dakar, Thies, Saint-Louis, Kaolack
+frequent_transaction_types = Online Payment, Electronic Payment
+frequent_transaction_times = 09:30 - 15:15
+
+Suspect:
+unusual_locations = Tambacounda
+unusual_amounts = amounts significantly higher or lower than average
+unusual_transaction_types = ATM
+
+Fraudulent:
+multiple_failed_transactions = yes
+unusual_locations_and_times = Kédougou at 14h05
+
+**Regles.txt for Client 1006**
+
+Normal:
+average_amount = 20,000 - 150,000 FCFA
+frequent_locations = Ziguinchor, Kolda, Fatick, Bambey
+frequent_transaction_types = ATM, Online Payment
+frequent_transaction_times = 08:15 - 13:45
+
+Suspect:
+unusual_locations = Richard-Toll
+unusual_amounts = amounts significantly higher or lower than average
+unusual_transaction_types = Electronic Payment
+
+Fraudulent:
+multiple_failed_transactions = yes
+unusual_locations_and_times = Cap-Skirring at 09:00
+
+After analyzing the behavior of each client generated by the agent "Generate Bank Transactions", I have identified the following rules to detect normal, suspect, and fraudulent transactions for each client:
+
+**Client 1007:**
+
+* Normal transactions: 
+  + Average transaction amount: 8000-12000
+  + Frequently used locations: Dakar, Thies, Touba, Kaolack
+  + Frequently used transaction types: ATM, Online Payment
+  + Frequently used status: Validé, En attente
+  + Time of day: 09:00-16:00
+* Suspect transactions:
+  + Unusual locations: Ziguinchor
+  + Unusual transaction amounts: > 150000
+  + Multiple failed transactions before a successful one
+* Fraudulent transactions:
+  + Unusual transaction type: Electronic Payment
+  + Unusual status: Echoué
+  + Large transaction amount: > 500000
+
+**Client 1008:**
+
+* Normal transactions: 
+  + Average transaction amount: 6000-10000
+  + Frequently used locations: Dakar, Thies, Touba, Kaolack
+  + Frequently used transaction types: ATM, Online Payment
+  + Frequently used status: Validé, En attente
+  + Time of day: 08:00-14:00
+* Suspect transactions:
+  + Unusual locations: Ziguinchor
+  + Unusual transaction amounts: > 200000
+  + Multiple failed transactions before a successful one
+* Fraudulent transactions:
+  + Unusual transaction type: Electronic Payment
+  + Unusual status: Echoué
+  + Large transaction amount: > 600000
+
+These rules will be saved in the 'Regles.txt' file for future reference.
+
+Note: The above rules are based on the analysis of the provided data and may need to be adjusted or refined as more data becomes available.
+
+Here is the set of rules or strategies for each client to detect Normal, Suspect, and Fraudulent cases for their future transactions. These rules are based on the analysis of each client's behavior generated by the agent Generate Bank Transactions.
+
+**Client 1009**
+
+* Normal transaction: 
+	+ Location: Dakar, Saint-Louis, Kolda, Kaolack, Kedougou, Podor, Vélingara, Bignona
+	+ Transaction Type: ATM, Online Payment, Electronic Payment
+	+ Amount: 2500 - 350000
+	+ Frequency: 2-3 transactions per week
+	+ Operation Status: Validated
+* Suspect transaction: 
+	+ Location: Unusual locations (e.g. Thies, Tambacounda, Diourbel, Fatick, Matam, Louga, Sedhiou, Kebemer, Goudiry, Linguere, Rufisque, Tivaouane, Bambey)
+	+ Transaction Type: Online Payment with Pending status
+	+ Amount: 50000 - 150000
+	+ Frequency: More than 3 transactions per week
+	+ Operation Status: Pending or Failed
+* Fraudulent transaction: 
+	+ Location: Unknown or unusual locations
+	+ Transaction Type: ATM or Electronic Payment with Failed status
+	+ Amount: More than 350000 or less than 2500
+	+ Frequency: More than 5 transactions per day
+	+ Operation Status: Failed or Pending
+
+**Client 1010**
+
+* Normal transaction: 
+	+ Location: Thies, Tambacounda, Diourbel, Fatick, Matam, Louga, Sedhiou, Kebemer, Goudiry, Linguere, Rufisque, Tivaouane, Bambey
+	+ Transaction Type: Online Payment, Electronic Payment
+	+ Amount: 15000 - 250000
+	+ Frequency: 2-3 transactions per week
+	+ Operation Status: Validated
+* Suspect transaction: 
+	+ Location: Unusual locations (e.g. Dakar, Saint-Louis, Kolda, Kaolack, Kedougou, Podor, Vélingara, Bignona)
+	+ Transaction Type: ATM with Failed status
+	+ Amount: 50000 - 150000
+	+ Frequency: More than 3 transactions per week
+	+ Operation Status: Pending or Failed
+* Fraudulent transaction: 
+	+ Location: Unknown or unusual locations
+	+ Transaction Type: Online Payment or Electronic Payment with Failed status
+	+ Amount: More than 250000 or less than 15000
+	+ Frequency: More than 5 transactions per day
+	+ Operation Status: Failed or Pending
+
+These rules will be saved in a file named 'Regles.txt' for each client.
+
+Here is the analysis of each client's behavior and the rules set up for each client to identify their future normal, suspect, and fraudulent transactions.
+
+**Client 1011**
+
+* Average monthly transactions: 4
+* Average weekly transactions: 1
+* Most frequent location: Dakar
+* Most frequent transaction type: ATM
+* Average transaction amount: 42000
+* Standard deviation of transaction amounts: 15000
+* Most frequent hour of transaction: 10:00
+* Most frequent day of transaction: Monday
+
+Rules for Client 1011:
+
+* Normal: Transaction amount between 3000 and 70000, location is Dakar or Thies, transaction type is ATM or Online Payment, hour of transaction is between 10:00 and 15:30, and day of transaction is Monday or Friday.
+* Suspect: Transaction amount is more than 70000 or less than 3000, location is not Dakar or Thies, transaction type is Electronic Payment, hour of transaction is not between 10:00 and 15:30, or day of transaction is not Monday or Friday.
+* Fraud: Multiple failed transactions in a short period, or a transaction with a location that is far from the client's usual location.
+
+**Client 1012**
+
+* Average monthly transactions: 4
+* Average weekly transactions: 1
+* Most frequent location: Tambacounda
+* Most frequent transaction type: ATM
+* Average transaction amount: 55000
+* Standard deviation of transaction amounts: 20000
+* Most frequent hour of transaction: 14:15
+* Most frequent day of transaction: Wednesday
+
+Rules for Client 1012:
+
+* Normal: Transaction amount between 4000 and 90000, location is Tambacounda or Ziguinchor, transaction type is ATM or Online Payment, hour of transaction is between 14:00 and 17:00, and day of transaction is Wednesday or Saturday.
+* Suspect: Transaction amount is more than 90000 or less than 4000, location is not Tambacounda or Ziguinchor, transaction type is Electronic Payment, hour of transaction is not between 14:00 and 17:00, or day of transaction is not Wednesday or Saturday.
+* Fraud: Multiple failed transactions in a short period, or a transaction with a location that is far from the client's usual location.
+
+These rules will be written to a file named "Regles.txt" for future reference.
+
+Content of Regles.txt:
+
+Client 1011:
+Normal: 3000 <= amount <= 70000, location in (Dakar, Thies), type in (ATM, Online Payment), 10:00 <= hour <= 15:30, day in (Monday, Friday)
+Suspect: amount > 70000 or amount < 3000, location not in (Dakar, Thies), type = Electronic Payment, hour not in (10:00, 15:30), day not in (Monday, Friday)
+Fraud: multiple failed transactions in a short period, or location far from usual location
+
+Client 1012:
+Normal: 4000 <= amount <= 90000, location in (Tambacounda, Ziguinchor), type in (ATM, Online Payment), 14:00 <= hour <= 17:00, day in (Wednesday, Saturday)
+Suspect: amount > 90000 or amount < 4000, location not in (Tambacounda, Ziguinchor), type = Electronic Payment, hour not in (14:00, 17:00), day not in (Wednesday, Saturday)
+Fraud: multiple failed transactions in a short period, or location far from usual location
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have identified the following rules to detect normal, suspicious, and fraudulent transactions for each client.
+
+**Client 1013:**
+
+* Normal transactions: ATM transactions in Dakar or Thies with amounts between 2000 and 6000 FCFA, Online Payment transactions in Dakar with amounts between 50000 and 75000 FCFA, Electronic Payment transactions in Dakar or Thies with amounts between 150000 and 300000 FCFA.
+* Suspicious transactions: Transactions in unusual locations (outside Dakar and Thies), transactions with amounts exceeding 300000 FCFA, multiple failed transactions before a successful one.
+* Fraudulent transactions: Transactions with amounts exceeding 500000 FCFA, multiple transactions in a short period of time (less than 1 hour) in different locations.
+
+**Client 1014:**
+
+* Normal transactions: Online Payment transactions in Saint-Louis or Dakar with amounts between 70000 and 250000 FCFA, Electronic Payment transactions in Dakar or Saint-Louis with amounts between 200000 and 350000 FCFA, ATM transactions in Saint-Louis or Dakar with amounts between 5000 and 10000 FCFA.
+* Suspicious transactions: Transactions in unusual locations (outside Saint-Louis and Dakar), transactions with amounts exceeding 350000 FCFA, multiple failed transactions before a successful one.
+* Fraudulent transactions: Transactions with amounts exceeding 500000 FCFA, multiple transactions in a short period of time (less than 1 hour) in different locations.
+
+**Client 1015:**
+
+* Normal transactions: Electronic Payment transactions in Kaolack or Dakar with amounts between 200000 and 400000 FCFA, Online Payment transactions in Kaolack or Dakar with amounts between 60000 and 150000 FCFA, ATM transactions in Kaolack or Dakar with amounts between 4000 and 8000 FCFA.
+* Suspicious transactions: Transactions in unusual locations (outside Kaolack and Dakar), transactions with amounts exceeding 400000 FCFA, multiple failed transactions before a successful one.
+* Fraudulent transactions: Transactions with amounts exceeding 600000 FCFA, multiple transactions in a short period of time (less than 1 hour) in different locations.
+
+These rules will be registered in a file named 'Regles.txt' for future reference.
+
+Note: The rules are based on the analysis of the client's behavior and may need to be updated as new transactions are generated.
+
+Here is the complete content of the 'Regles.txt' file:
+
+**Client 1016**
+
+* Normal: 
+  - Montant moyen entre 5000 et 80000
+  - Transactions fréquentes à Dakar, Thies et Tivaouane
+  - Transactions habituelles entre 10h et 15h
+  - Types de transactions habituelles : ATM et Online Payment
+* Suspect: 
+  - Transaction inhabituelle à une localisation inhabituelle (hors Dakar, Thies et Tivaouane)
+  - Montant inhabituellement élevé (> 80000)
+  - Plusieurs transactions échouées avant une transaction réussie
+* Frauduleuse: 
+  - Transaction à une localisation inhabituelle (hors Sénégal)
+  - Montant inhabituellement élevé (> 400000)
+  - Fréquence de localisation inhabituelle (plus de 2 transactions à la même heure)
+
+**Client 1017**
+
+* Normal: 
+  - Montant moyen entre 20000 et 120000
+  - Transactions fréquentes à Saint-Louis, Tambacounda et Linguère
+  - Transactions habituelles entre 8h et 14h
+  - Types de transactions habituelles : ATM et Online Payment
+* Suspect: 
+  - Transaction inhabituelle à une localisation inhabituelle (hors Saint-Louis, Tambacounda et Linguère)
+  - Montant inhabituellement élevé (> 120000)
+  - Plusieurs transactions échouées avant une transaction réussie
+* Frauduleuse: 
+  - Transaction à une localisation inhabituelle (hors Sénégal)
+  - Montant inhabituellement élevé (> 600000)
+  - Fréquence de localisation inhabituelle (plus de 2 transactions à la même heure)
+
+**Client 1018**
+
+* Normal: 
+  - Montant moyen entre 6000 et 90000
+  - Transactions fréquentes à Kaolack, Kédougou et Goudiry
+  - Transactions habituelles entre 12h et 16h
+  - Types de transactions habituelles : ATM et Online Payment
+* Suspect: 
+  - Transaction inhabituelle à une localisation inhabituelle (hors Kaolack, Kédougou et Goudiry)
+  - Montant inhabituellement élevé (> 90000)
+  - Plusieurs transactions échouées avant une transaction réussie
+* Frauduleuse: 
+  - Transaction à une localisation inhabituelle (hors Sénégal)
+  - Montant inhabituellement élevé (> 700000)
+  - Fréquence de localisation inhabituelle (plus de 2 transactions à la même heure)
+
+Note: These rules are based on the analysis of the client's behavior and may need to be refined and updated as more data becomes available.
+
+After analyzing the behavior of each client generated by the agent "Generate Bank Transactions", I have identified the following patterns and rules to detect normal, suspicious, and fraudulent transactions for each client. These rules will be saved in a file named "Regles.txt".
+
+**Client 1019**
+
+* Average transaction amount: 34,615
+* Average transactions per month: 4
+* Preferred location: Dakar
+* Preferred transaction type: Online Payment
+* Rule 1: If transaction amount > 50,000 and location is not Dakar, then suspect.
+* Rule 2: If transaction type is ATM and location is not Dakar, then suspect.
+* Rule 3: If transaction status is Failed more than 2 times in a row, then suspect.
+
+**Client 1020**
+
+* Average transaction amount: 95,500
+* Average transactions per month: 3
+* Preferred location: Tambacounda
+* Preferred transaction type: Electronic Payment
+* Rule 1: If transaction amount > 150,000 and location is not Tambacounda, then suspect.
+* Rule 2: If transaction type is ATM, then suspect.
+* Rule 3: If transaction status is Pending for more than 3 days, then suspect.
+
+**Client 1021**
+
+* Average transaction amount: 4,200
+* Average transactions per month: 4
+* Preferred location: Ziguinchor
+* Preferred transaction type: ATM
+* Rule 1: If transaction amount > 10,000 and location is not Ziguinchor, then suspect.
+* Rule 2: If transaction type is Online Payment, then suspect.
+* Rule 3: If transaction status is Failed more than 3 times in a row, then suspect.
+
+**Common rules**
+
+* If transaction location is outside of Senegal, then fraud.
+* If transaction amount is more than 500,000, then fraud.
+* If transaction type is unknown, then suspect.
+
+**Regles.txt**
+
+Client 1019:
+ Rule 1: If transaction amount > 50,000 and location is not Dakar, then suspect.
+ Rule 2: If transaction type is ATM and location is not Dakar, then suspect.
+ Rule 3: If transaction status is Failed more than 2 times in a row, then suspect.
+
+Client 1020:
+ Rule 1: If transaction amount > 150,000 and location is not Tambacounda, then suspect.
+ Rule 2: If transaction type is ATM, then suspect.
+ Rule 3: If transaction status is Pending for more than 3 days, then suspect.
+
+Client 1021:
+ Rule 1: If transaction amount > 10,000 and location is not Ziguinchor, then suspect.
+ Rule 2: If transaction type is Online Payment, then suspect.
+ Rule 3: If transaction status is Failed more than 3 times in a row, then suspect.
+
+Common rules:
+ Rule 1: If transaction location is outside of Senegal, then fraud.
+ Rule 2: If transaction amount is more than 500,000, then fraud.
+ Rule 3: If transaction type is unknown, then suspect.
+
+These rules will help identify normal, suspicious, and fraudulent transactions for each client, taking into account their individual behavior and patterns.
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have identified the following rules to detect normal, suspicious, and fraudulent transactions for each client.
+
+**Client 1022**
+
+* Normal transactions: 
+	+ Location: Dakar, Ziguinchor, Thies, Fatick, Kolda, Rufisque, Foundiougne, Vélingara, Mbacké, Gossas
+	+ Transaction type: ATM
+	+ Amount: 2000 - 25000
+	+ Frequency: 2-3 transactions per week
+* Suspicious transactions: 
+	+ Unusual location (e.g., outside Senegal)
+	+ Large amount (> 50000)
+	+ Multiple failed transactions in a short period
+* Fraudulent transactions: 
+	+ Multiple transactions in different locations within a short period
+	+ Unusual transaction type (e.g., online payment)
+
+**Client 1023**
+
+* Normal transactions: 
+	+ Location: Saint-Louis, Kaolack, Kédougou, Matam, Podor, Sédhiou, Nioro, Bignona, Pikine, Tivaouane
+	+ Transaction type: Online Payment
+	+ Amount: 20000 - 50000
+	+ Frequency: 2-3 transactions per week
+* Suspicious transactions: 
+	+ Unusual location (e.g., outside Senegal)
+	+ Large amount (> 100000)
+	+ Multiple failed transactions in a short period
+* Fraudulent transactions: 
+	+ Multiple transactions in different locations within a short period
+	+ Unusual transaction type (e.g., ATM)
+
+**Client 1024**
+
+* Normal transactions: 
+	+ Location: Touba, Diourbel, Tambacounda, Bambey, Louga, Kaffrine, Guinguinéo, Oussouye, Saint-Louis
+	+ Transaction type: Paiement électronique
+	+ Amount: 500000 - 800000
+	+ Frequency: 2-3 transactions per week
+* Suspicious transactions: 
+	+ Unusual location (e.g., outside Senegal)
+	+ Large amount (> 1000000)
+	+ Multiple failed transactions in a short period
+* Fraudulent transactions: 
+	+ Multiple transactions in different locations within a short period
+	+ Unusual transaction type (e.g., ATM or online payment)
+
+These rules will be saved in the 'Regles.txt' file for future reference.
+
+Please note that these rules are based on the provided data and may need to be adjusted or refined as more data becomes available.
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have identified the following rules to detect normal, suspect, and fraudulent transactions for each client:
+
+**Client 10220**
+
+* Normal transactions: 
+	+ Frequency: 1 transaction per month
+	+ Locations: Dakar, Thies, Saint-Louis
+	+ Average amount: 15,000 - 25,000 FCFA
+	+ Transaction types: ATM, Paiement en ligne, Paiement électronique
+	+ Time of day: 09:00 - 14:30
+* Suspect transactions: 
+	+ Unusual locations (outside of Dakar, Thies, Saint-Louis)
+	+ Transactions outside of the average amount range
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+	+ Multiple transactions in a short period of time (less than 1 hour)
+	+ Transactions in different locations in a short period of time (less than 1 hour)
+
+**Client 10230**
+
+* Normal transactions: 
+	+ Frequency: 1 transaction per month
+	+ Locations: Dakar, Thies, Diourbel
+	+ Average amount: 20,000 - 45,000 FCFA
+	+ Transaction types: ATM, Paiement en ligne, Paiement électronique
+	+ Time of day: 11:00 - 16:00
+* Suspect transactions: 
+	+ Unusual locations (outside of Dakar, Thies, Diourbel)
+	+ Transactions outside of the average amount range
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+	+ Multiple transactions in a short period of time (less than 1 hour)
+	+ Transactions in different locations in a short period of time (less than 1 hour)
+
+**Client 10240**
+
+* Normal transactions: 
+	+ Frequency: 1 transaction per month
+	+ Locations: Kaolack, Dakar, Tivaouane, Ziguinchor
+	+ Average amount: 1,000 - 90,000 FCFA
+	+ Transaction types: ATM, Paiement en ligne, Paiement électronique
+	+ Time of day: 09:00 - 14:00
+* Suspect transactions: 
+	+ Unusual locations (outside of Kaolack, Dakar, Tivaouane, Ziguinchor)
+	+ Transactions outside of the average amount range
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+	+ Multiple transactions in a short period of time (less than 1 hour)
+	+ Transactions in different locations in a short period of time (less than 1 hour)
+
+These rules will be recorded in a file named 'Regles.txt' for future reference.
+
+Note: The above rules are based on the analysis of the provided data and may need to be adjusted or refined based on additional data or feedback.
+
+After analyzing the behavior of each client generated by the agent "Generate Bank Transactions", I have identified the following rules for each client to identify their future transactions as normal, suspicious, or fraudulent.
+
+**Client 1025**
+
+* Normal transactions:
+	+ Average monthly transactions: 4
+	+ Average transaction amount: 20,000 - 50,000
+	+ Frequent locations: Dakar, Diourbel, Thies
+	+ Frequent transaction types: ATM, Online Payment
+	+ Frequent operation status: Validated
+* Suspicious transactions:
+	+ Transaction amount > 50,000
+	+ Unusual location (not Dakar, Diourbel, or Thies)
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions:
+	+ Transaction amount > 100,000
+	+ Unusual location and unusual transaction type (not ATM or Online Payment)
+	+ Multiple transactions in a short period of time (> 3 transactions in 1 hour)
+
+**Client 1026**
+
+* Normal transactions:
+	+ Average monthly transactions: 4
+	+ Average transaction amount: 15,000 - 70,000
+	+ Frequent locations: Kaolack, Ziguinchor, Tambacounda
+	+ Frequent transaction types: Online Payment, Electronic Payment
+	+ Frequent operation status: Validated
+* Suspicious transactions:
+	+ Transaction amount > 70,000
+	+ Unusual location (not Kaolack, Ziguinchor, or Tambacounda)
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions:
+	+ Transaction amount > 120,000
+	+ Unusual location and unusual transaction type (not Online Payment or Electronic Payment)
+	+ Multiple transactions in a short period of time (> 3 transactions in 1 hour)
+
+**Client 1027**
+
+* Normal transactions:
+	+ Average monthly transactions: 4
+	+ Average transaction amount: 10,000 - 60,000
+	+ Frequent locations: Fatick, Matam, Kedougou
+	+ Frequent transaction types: Electronic Payment, ATM
+	+ Frequent operation status: Validated
+* Suspicious transactions:
+	+ Transaction amount > 60,000
+	+ Unusual location (not Fatick, Matam, or Kedougou)
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions:
+	+ Transaction amount > 150,000
+	+ Unusual location and unusual transaction type (not Electronic Payment or ATM)
+	+ Multiple transactions in a short period of time (> 3 transactions in 1 hour)
+
+These rules will be saved in a file named "Regles.txt".
+
+Regles.txt:
+```
+Client 1025:
+Normal: 4 transactions/month, 20,000 - 50,000, Dakar, Diourbel, Thies, ATM, Online Payment, Validated
+Suspicious: > 50,000, unusual location, multiple failed transactions
+Fraudulent: > 100,000, unusual location and transaction type, multiple transactions in 1 hour
+
+Client 1026:
+Normal: 4 transactions/month, 15,000 - 70,000, Kaolack, Ziguinchor, Tambacounda, Online Payment, Electronic Payment, Validated
+Suspicious: > 70,000, unusual location, multiple failed transactions
+Fraudulent: > 120,000, unusual location and transaction type, multiple transactions in 1 hour
+
+Client 1027:
+Normal: 4 transactions/month, 10,000 - 60,000, Fatick, Matam, Kedougou, Electronic Payment, ATM, Validated
+Suspicious: > 60,000, unusual location, multiple failed transactions
+Fraudulent: > 150,000, unusual location and transaction type, multiple transactions in 1 hour
+```
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have identified the following rules to detect normal, suspicious, and fraudulent transactions for each client.
+
+**Client 10250**
+
+* Normal transactions: 
+	+ Average monthly transactions: 4
+	+ Average transaction amount: 25,000 (between 2,000 and 50,000)
+	+ Frequently used locations: Dakar, Touba
+	+ Frequently used transaction types: ATM, Online Payment
+	+ Frequently used status: Validé
+	+ Average time of day: 10:00 - 16:00
+* Suspicious transactions: 
+	+ Transactions in unusual locations (e.g., Diourbel, Richard-Toll)
+	+ Transactions with amounts above 100,000
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+	+ Transactions with amounts above 200,000
+	+ Transactions in multiple locations within a short timeframe (e.g., Dakar and Diourbel within 1 hour)
+
+**Client 10260**
+
+* Normal transactions: 
+	+ Average monthly transactions: 4
+	+ Average transaction amount: 45,000 (between 5,000 and 90,000)
+	+ Frequently used locations: Dakar, Tambacounda
+	+ Frequently used transaction types: Online Payment, Electronic Payment
+	+ Frequently used status: Validé
+	+ Average time of day: 11:00 - 17:00
+* Suspicious transactions: 
+	+ Transactions in unusual locations (e.g., Ziguinchor, Matam)
+	+ Transactions with amounts above 150,000
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+	+ Transactions with amounts above 250,000
+	+ Transactions in multiple locations within a short timeframe (e.g., Dakar and Tambacounda within 1 hour)
+
+**Client 10270**
+
+* Normal transactions: 
+	+ Average monthly transactions: 4
+	+ Average transaction amount: 60,000 (between 4,000 and 120,000)
+	+ Frequently used locations: Dakar, Kaolack
+	+ Frequently used transaction types: Online Payment, ATM
+	+ Frequently used status: Validé
+	+ Average time of day: 12:00 - 18:00
+* Suspicious transactions: 
+	+ Transactions in unusual locations (e.g., Thies, Kolda)
+	+ Transactions with amounts above 180,000
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+	+ Transactions with amounts above 300,000
+	+ Transactions in multiple locations within a short timeframe (e.g., Dakar and Kaolack within 1 hour)
+
+These rules will be saved in a file named "Regles.txt" for future reference.
+
+Note: The above rules are based on the analysis of the provided 25 transactions. The full table of 30 transactions may require adjustments to these rules.
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have identified the following rules and strategies to detect normal, suspicious, and fraudulent transactions for each client.
+
+**Client 1028:**
+
+* Normal transactions: 
+  - ATM transactions in Dakar, Tambacounda, and Pikine with amounts between 10000 and 25000.
+  - Transaction frequency: 2-3 times a week.
+  - Transaction times: between 10:00 and 17:45.
+* Suspicious transactions: 
+  - ATM transactions in Fatick or Kebemer with amounts above 5000.
+  - Multiple failed transactions in a short period.
+* Fraudulent transactions: 
+  - ATM transactions in regions outside of Senegal.
+  - Transactions with amounts above 50000.
+
+**Client 1029:**
+
+* Normal transactions: 
+  - Online payment transactions in Thies, Kaolack, and Marie-Therese with amounts between 30000 and 60000.
+  - Transaction frequency: 1-2 times a week.
+  - Transaction times: between 15:45 and 19:00.
+* Suspicious transactions: 
+  - Online payment transactions in regions outside of Senegal.
+  - Multiple pending transactions in a short period.
+* Fraudulent transactions: 
+  - Online payment transactions with amounts above 150000.
+  - Transactions in regions with no previous history.
+
+**Client 1030:**
+
+* Normal transactions: 
+  - Electronic payment transactions in Saint-Louis, Diourbel, and Louga with amounts between 80000 and 200000.
+  - Transaction frequency: 1-2 times a week.
+  - Transaction times: between 11:15 and 14:20.
+* Suspicious transactions: 
+  - Electronic payment transactions in regions outside of Senegal.
+  - Multiple pending transactions in a short period.
+* Fraudulent transactions: 
+  - Electronic payment transactions with amounts above 250000.
+  - Transactions in regions with no previous history.
+
+These rules and strategies will be stored in a file named 'Regles.txt' for future reference and updating.
+
+Note: These rules are based on the provided dataset and may need to be adjusted or updated as more data becomes available.
+
+After analyzing the behavior of each client generated by the agent "Generate Bank Transactions", I have identified the following rules to detect normal, suspicious, and fraudulent transactions for each client.
+
+**Client 10280**
+
+* Normal transactions:
+	+ Average transaction amount: 2500-75000
+	+ Frequent locations: Dakar, Thies, Saint-Louis
+	+ Frequent transaction types: ATM, Online Payment
+	+ Frequent transaction times: 10:01-15:30
+* Suspicious transactions:
+	+ Unusual locations: Ziguinchor
+	+ Unusual transaction times: 14:45
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions:
+	+ Transactions with unusual amounts (>100000)
+	+ Transactions with unusual transaction types (e.g. Electronic Payment)
+
+**Client 10290**
+
+* Normal transactions:
+	+ Average transaction amount: 5000-120000
+	+ Frequent locations: Tambacounda, Kaolack, Diourbel
+	+ Frequent transaction types: Online Payment, Electronic Payment
+	+ Frequent transaction times: 11:00-16:20
+* Suspicious transactions:
+	+ Unusual locations: Kédougou
+	+ Unusual transaction times: 13:00
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions:
+	+ Transactions with unusual amounts (>150000)
+	+ Transactions with unusual transaction types (e.g. ATM)
+
+**Client 10300**
+
+* Normal transactions:
+	+ Average transaction amount: 3000-150000
+	+ Frequent locations: Richard-Toll, Louga, Fatick
+	+ Frequent transaction types: Electronic Payment, Online Payment
+	+ Frequent transaction times: 12:10-18:00
+* Suspicious transactions:
+	+ Unusual locations: Mbour
+	+ Unusual transaction times: 14:30
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions:
+	+ Transactions with unusual amounts (>200000)
+	+ Transactions with unusual transaction types (e.g. ATM)
+
+These rules will be recorded in a file named "Regles.txt" and will be used to identify normal, suspicious, and fraudulent transactions for each client.
+
+Note: The rules are based on the analysis of the provided data and may need to be refined or updated as more data becomes available.
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I can identify the following rules for each client to detect their future transactions as normal, suspicious, or fraudulent.
+
+**Client 100280**
+
+* Normal transactions: 
+  + Average transaction amount: 5,000 - 20,000
+  + Frequent locations: Dakar, Saint-Louis
+  + Frequent transaction types: ATM, Payment online
+  + Frequent transaction times: 10:00 - 16:00
+* Suspicious transactions: 
+  + Unusual locations: Outside of Dakar and Saint-Louis
+  + Unusual transaction types: Payment electronic
+  + Unusual transaction times: Outside of 10:00 - 16:00
+* Fraudulent transactions: 
+  + Multiple failed transactions before a successful one
+  + Large transaction amounts (> 50,000)
+  + Unusual transaction frequencies (> 5 transactions per day)
+
+**Client 100290**
+
+* Normal transactions: 
+  + Average transaction amount: 1,500 - 15,000
+  + Frequent locations: Diourbel, Tambacounda
+  + Frequent transaction types: ATM, Payment online
+  + Frequent transaction times: 09:00 - 16:00
+* Suspicious transactions: 
+  + Unusual locations: Outside of Diourbel and Tambacounda
+  + Unusual transaction types: Payment electronic
+  + Unusual transaction times: Outside of 09:00 - 16:00
+* Fraudulent transactions: 
+  + Multiple failed transactions before a successful one
+  + Large transaction amounts (> 100,000)
+  + Unusual transaction frequencies (> 5 transactions per day)
+
+**Client 100300**
+
+* Normal transactions: 
+  + Average transaction amount: 2,000 - 27,000
+  + Frequent locations: Ziguinchor, Kolda
+  + Frequent transaction types: ATM, Payment online
+  + Frequent transaction times: 10:00 - 14:00
+* Suspicious transactions: 
+  + Unusual locations: Outside of Ziguinchor and Kolda
+  + Unusual transaction types: Payment electronic
+  + Unusual transaction times: Outside of 10:00 - 14:00
+* Fraudulent transactions: 
+  + Multiple failed transactions before a successful one
+  + Large transaction amounts (> 100,000)
+  + Unusual transaction frequencies (> 5 transactions per day)
+
+These rules will be recorded in a file named 'Regles.txt'.
+
+Note: The rules are based on the analysis of the provided transactions and may need to be adjusted as more data becomes available.
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, the following rules are set up for each client to identify their future transactions as normal, suspect, or fraudulent:
+
+**Client 1031**
+
+* Normal transactions: 
+	+ Average monthly transactions: 4
+	+ Average weekly transactions: 1
+	+ Frequent locations: Dakar, Diourbel
+	+ Average amount: 35000
+	+ Average interval between transactions: 10 days
+	+ Common transaction types: ATM, Online Payment
+	+ Common operation status: Validated
+* Suspect transactions: 
+	+ Transactions in unusual locations (e.g., region de Kaolack)
+	+ Transactions with unusually high amounts (e.g., > 100000)
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+	+ Transactions in multiple locations within a short time frame (e.g., < 1 hour)
+	+ Transactions with significantly different amounts or frequencies compared to the client's normal behavior
+
+**Client 1032**
+
+* Normal transactions: 
+	+ Average monthly transactions: 4
+	+ Average weekly transactions: 1
+	+ Frequent locations: Saint-Louis, Dakar
+	+ Average amount: 75000
+	+ Average interval between transactions: 12 days
+	+ Common transaction types: Online Payment, Electronic Payment
+	+ Common operation status: Validated
+* Suspect transactions: 
+	+ Transactions in unusual locations (e.g., Ziguinchor)
+	+ Transactions with unusually high amounts (e.g., > 150000)
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+	+ Transactions in multiple locations within a short time frame (e.g., < 1 hour)
+	+ Transactions with significantly different amounts or frequencies compared to the client's normal behavior
+
+**Client 1033**
+
+* Normal transactions: 
+	+ Average monthly transactions: 4
+	+ Average weekly transactions: 1
+	+ Frequent locations: Kaolack, Dakar
+	+ Average amount: 55000
+	+ Average interval between transactions: 11 days
+	+ Common transaction types: Electronic Payment, ATM
+	+ Common operation status: Validated
+* Suspect transactions: 
+	+ Transactions in unusual locations (e.g., Tivaouane)
+	+ Transactions with unusually high amounts (e.g., > 120000)
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions: 
+	+ Transactions in multiple locations within a short time frame (e.g., < 1 hour)
+	+ Transactions with significantly different amounts or frequencies compared to the client's normal behavior
+
+These rules will be recorded in a file named 'Regles.txt'.
+
+Please note that these rules are based on the limited dataset provided and might need to be adjusted or refined as more data becomes available.
+
+Here are the detection rules for each client to identify normal, suspect, and fraudulent transactions:
+
+**Client 1034**
+
+* Normal transactions:
+	+ Average transaction amount: 15,000 FCFA
+	+ Frequent locations: Dakar
+	+ Frequent transaction types: ATM, Online Payment
+	+ Frequent operation status: Validated
+* Suspect transactions:
+	+ Transaction amount > 50,000 FCFA
+	+ Unusual location (not Dakar)
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions:
+	+ Transaction amount > 100,000 FCFA
+	+ Unusual location (not Dakar) and unusual transaction type (not ATM or Online Payment)
+
+**Client 1035**
+
+* Normal transactions:
+	+ Average transaction amount: 25,000 FCFA
+	+ Frequent locations: Saint-Louis
+	+ Frequent transaction types: Online Payment, ATM
+	+ Frequent operation status: Validated
+* Suspect transactions:
+	+ Transaction amount > 80,000 FCFA
+	+ Unusual location (not Saint-Louis)
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions:
+	+ Transaction amount > 150,000 FCFA
+	+ Unusual location (not Saint-Louis) and unusual transaction type (not Online Payment or ATM)
+
+**Client 1036**
+
+* Normal transactions:
+	+ Average transaction amount: 35,000 FCFA
+	+ Frequent locations: Ziguinchor, Touba
+	+ Frequent transaction types: Online Payment, Electronic Payment
+	+ Frequent operation status: Validated
+* Suspect transactions:
+	+ Transaction amount > 90,000 FCFA
+	+ Unusual location (not Ziguinchor or Touba)
+	+ Multiple failed transactions before a successful one
+* Fraudulent transactions:
+	+ Transaction amount > 180,000 FCFA
+	+ Unusual location (not Ziguinchor or Touba) and unusual transaction type (not Online Payment or Electronic Payment)
+
+These rules will be saved in a file named "Regles.txt" for future reference.
+
+Note: These rules are based on the analysis of the provided transaction data and may need to be adjusted or refined as more data becomes available.
+
+Here is the complete set of rules for each client to detect normal, suspicious, and fraudulent transactions:
+
+**Client 10340**
+- Rule 1: If transaction amount is between 4000 and 6000, and location is Dakar or Thies, and type of transaction is ATM or Online Payment, then transaction is normal.
+- Rule 2: If transaction amount is above 120000, and location is Tambacounda, and type of transaction is Electronic Payment, then transaction is suspect.
+- Rule 3: If transaction status is Echoué, and type of transaction is Electronic Payment, then transaction is fraud.
+
+**Client 10350**
+- Rule 1: If transaction amount is between 1500 and 3000, and location is Ziguinchor or Kolda, and type of transaction is ATM or Online Payment, then transaction is normal.
+- Rule 2: If transaction amount is above 250000, and location is Saint-Louis, and type of transaction is Electronic Payment, then transaction is suspect.
+- Rule 3: If transaction status is En attente, and type of transaction is Online Payment, then transaction is fraud.
+
+**Client 10360**
+- Rule 1: If transaction amount is between 2000 and 4000, and location is Kaolack or Matam, and type of transaction is ATM or Electronic Payment, then transaction is normal.
+- Rule 2: If transaction amount is above 150000, and location is Diourbel, and type of transaction is Online Payment, then transaction is suspect.
+- Rule 3: If transaction status is Echoué, and type of transaction is Electronic Payment, then transaction is fraud.
+
+These rules are based on the analysis of each client's behavior, including their typical transaction amounts, locations, and types of transactions. The rules are designed to detect normal, suspicious, and fraudulent transactions for each client.
+
+The rules will be saved in a file named 'Regles.txt' in the following format:
+
+10340;Rule 1;normal;4000;6000;Dakar;Thies;ATM;Online Payment
+10340;Rule 2;suspect;120000;;Tambacounda;Electronic Payment
+10340;Rule 3;fraud;;;Echoué;Electronic Payment
+10350;Rule 1;normal;1500;3000;Ziguinchor;Kolda;ATM;Online Payment
+10350;Rule 2;suspect;250000;;Saint-Louis;Electronic Payment
+10350;Rule 3;fraud;;;En attente;Online Payment
+10360;Rule 1;normal;2000;4000;Kaolack;Matam;ATM;Electronic Payment
+10360;Rule 2;suspect;150000;;Diourbel;Online Payment
+10360;Rule 3;fraud;;;Echoué;Electronic Payment
+
+Here is the complete set of rules for each client to detect Normal, Suspect, and Fraudulent transactions for their future transactions:
+
+**Regles.txt**
+
+**Client Code 1037**
+- Rule 1: If transaction amount is between 2000 and 3000 and location is Dakar, then transaction is Normal.
+- Rule 2: If transaction type is Online Payment and operation status is Pending, then transaction is Normal.
+- Rule 3: If transaction type is Electronic Payment and operation status is Failed, then transaction is Suspect.
+- Rule 4: If transaction amount is greater than 750000 and location is Saint-Louis, then transaction is Fraudulent.
+
+**Client Code 1038**
+- Rule 1: If transaction amount is between 2500 and 3500 and location is Tambacounda, then transaction is Normal.
+- Rule 2: If transaction type is Online Payment and operation status is Pending, then transaction is Normal.
+- Rule 3: If transaction type is Electronic Payment and operation status is Failed, then transaction is Suspect.
+- Rule 4: If transaction amount is greater than 800000 and location is Ziguinchor, then transaction is Fraudulent.
+
+**Client Code 1039**
+- Rule 1: If transaction amount is between 3500 and 4500 and location is Kaolack, then transaction is Normal.
+- Rule 2: If transaction type is Online Payment and operation status is Pending, then transaction is Normal.
+- Rule 3: If transaction type is Electronic Payment and operation status is Failed, then transaction is Suspect.
+- Rule 4: If transaction amount is greater than 900000 and location is Matam, then transaction is Fraudulent.
+
+These rules are based on the analysis of each client's behavior, including their transaction frequency, location, amount, and type. The rules aim to identify Normal, Suspect, and Fraudulent transactions for each client.
+
+After analyzing the behavior of each client generated by the agent Generate Bank Transactions, I have identified the following rules to detect normal, suspicious, and fraudulent transactions for each client.
+
+**Client 10037**
+
+* Normal transactions: 
+  - Average transaction amount: 25000
+  - Frequent locations: Dakar, Thiès, Tambacounda
+  - Frequent transaction types: ATM, Payment electronic
+  - Frequent hours: 09:15, 14:30, 21:00
+  - Rule: If transaction amount is between 1000 and 50000, and location is Dakar, Thiès, or Tambacounda, and transaction type is ATM or Payment electronic, and hour is 09:15, 14:30, or 21:00, then transaction is normal.
+
+* Suspicious transactions: 
+  - Unusual locations: Saint-Louis
+  - Unusual transaction types: Payment online
+  - Unusual hours: 17:45
+  - Rule: If transaction amount is above 50000, and location is Saint-Louis, and transaction type is Payment online, and hour is 17:45, then transaction is suspicious.
+
+* Fraudulent transactions: 
+  - Multiple failed transactions before a successful one
+  - Rule: If there are more than 2 failed transactions in a row, and then a successful transaction, then transaction is fraudulent.
+
+**Client 10308**
+
+* Normal transactions: 
+  - Average transaction amount: 15000
+  - Frequent locations: Ziguinchor, Fatick, Kaolack
+  - Frequent transaction types: ATM, Payment electronic
+  - Frequent hours: 09:15, 14:30, 21:00
+  - Rule: If transaction amount is between 1000 and 30000, and location is Ziguinchor, Fatick, or Kaolack, and transaction type is ATM or Payment electronic, and hour is 09:15, 14:30, or 21:00, then transaction is normal.
+
+* Suspicious transactions: 
+  - Unusual locations: Kolda
+  - Unusual transaction types: Payment online
+  - Unusual hours: 17:45
+  - Rule: If transaction amount is above 30000, and location is Kolda, and transaction type is Payment online, and hour is 17:45, then transaction is suspicious.
+
+* Fraudulent transactions: 
+  - Multiple failed transactions before a successful one
+  - Rule: If there are more than 2 failed transactions in a row, and then a successful transaction, then transaction is fraudulent.
+
+**Client 10390**
+
+* Normal transactions: 
+  - Average transaction amount: 20000
+  - Frequent locations: Diourbel, Louga, Bambey
+  - Frequent transaction types: ATM, Payment electronic
+  - Frequent hours: 09:15, 14:30, 21:00
+  - Rule: If transaction amount is between 1000 and 40000, and location is Diourbel, Louga, or Bambey, and transaction type is ATM or Payment electronic, and hour is 09:15, 14:30, or 21:00, then transaction is normal.
+
+* Suspicious transactions: 
+  - Unusual locations: Matam
+  - Unusual transaction types: Payment online
+  - Unusual hours: 17:45
+  - Rule: If transaction amount is above 40000, and location is Matam, and transaction type is Payment online, and hour is 17:45, then transaction is suspicious.
+
+* Fraudulent transactions: 
+  - Multiple failed transactions before a successful one
+  - Rule: If there are more than 2 failed transactions in a row, and then a successful transaction, then transaction is fraudulent.
+
+These rules will be saved in a file named "Regles.txt" for future reference.
+
+Note: These rules are based on the analysis of the provided data and may need to be adjusted or updated as new data becomes available.
+
+After analyzing the behavior of each client generated by the agent "Generate Bank Transactions", I have identified the following rules to detect normal, suspect, and fraudulent transactions for each client.
+
+**Client 1040**
+- Normal transactions: 
+  - Average transaction amount: 7500
+  - Frequent locations: Dakar, Tambacounda, Fatick
+  - Frequent transaction types: ATM, Online payment
+  - Frequent status: Validé
+- Suspect transactions: 
+  - Unusual locations: Diourbel, Kédougou
+  - Unusual transaction types: Electronic payment
+  - Unusual status: Echoué
+- Fraudulent transactions: 
+  - Multiple failed transactions in a short period
+  - Unusual large transaction amounts
+
+**Client 1041**
+- Normal transactions: 
+  - Average transaction amount: 12000
+  - Frequent locations: Ziguinchor, Thies, Kaolack
+  - Frequent transaction types: Online payment, ATM
+  - Frequent status: Validé
+- Suspect transactions: 
+  - Unusual locations: Richard-Toll, M'bour
+  - Unusual transaction types: Electronic payment
+  - Unusual status: Echoué
+- Fraudulent transactions: 
+  - Multiple failed transactions in a short period
+  - Unusual large transaction amounts
+
+**Client 1042**
+- Normal transactions: 
+  - Average transaction amount: 9500
+  - Frequent locations: Kolda, Hann, Matam
+  - Frequent transaction types: ATM, Online payment
+  - Frequent status: Validé
+- Suspect transactions: 
+  - Unusual locations: Saloum, Tivaouane
+  - Unusual transaction types: Electronic payment
+  - Unusual status: Echoué
+- Fraudulent transactions: 
+  - Multiple failed transactions in a short period
+  - Unusual large transaction amounts
+
+These rules will be registered in the file "Regles.txt" to detect normal, suspect, and fraudulent transactions for each client.
+
+Please note that these rules are based on the analysis of the provided data and may need to be refined and updated as more data becomes available.
+
+Based on the provided data, here's a set of rules for detecting normal, suspicious, and fraudulent transactions for each client.  These rules are designed to be applied to future transactions.  The rules consider transaction frequency, location, amount, type, and status.
+
+**Rules for Client 50743:**
+
+* **Normal:** Transactions are primarily online payments and ATM withdrawals in Dakar, Thiès, and Kaolack.  Amounts are generally below 20,000 CFA, with occasional larger online payments (up to 150,000 CFA). Transactions occur throughout the day but are less frequent on weekends.  A few pending transactions are acceptable.
+
+* **Suspicious:** Transactions exceeding 150,000 CFA from unusual locations. Multiple failed transactions in a short period.  A sudden increase in transaction frequency or a significant shift in transaction types.
+
+* **Fraudulent:**  Transactions from locations outside Senegal.  A large number of failed transactions followed by a successful one of a significant amount.  Multiple ATM withdrawals in a short time from different locations.
+
+
+**Rules for Client 50462:**
+
+* **Normal:**  Mix of ATM withdrawals and online/electronic payments across various locations within Senegal.  Amounts vary but typically below 50,000 CFA.  Occasional pending transactions are acceptable.
+
+* **Suspicious:** Frequent ATM withdrawal attempts that fail.  Transactions from geographically distant locations in a short period.  A significant increase in transaction amounts compared to the average.
+
+* **Fraudulent:** Transactions from countries outside Senegal.  Consecutive failed transactions followed by a large successful transaction.  Unusual transaction types compared to the client's history.
+
+
+**Rules for Client 50987:**
+
+* **Normal:** Primarily electronic and online payments, with occasional ATM withdrawals. Transactions are concentrated in the cities of Fatick, Mbour, Matam.  Amounts vary but are generally below 120,000 CFA.
+
+* **Suspicious:**  High frequency of failed ATM withdrawals. Transactions from locations far from the usual pattern.  Amounts significantly exceeding the average.
+
+* **Fraudulent:** Transactions occurring outside of Senegal.  Multiple failed transactions, especially if involving large amounts.
+
+
+**Rules for Client 50139:**
+
+* **Normal:**  A mix of transaction types (online, ATM, electronic payments) across various locations within Senegal.  Amounts vary considerably.  Occasional pending or failed transactions are normal.
+
+* **Suspicious:**  Multiple failed transactions, particularly online payments.  Transactions from locations showing a sudden geographic shift.  Large amounts in a short period.
+
+* **Fraudulent:** Transactions from outside Senegal.  Consecutive failed attempts followed by a successful transaction of a large amount.  Unusual transaction types.
+
+
+**Rules for Client 50512:**
+
+* **Normal:** Primarily ATM withdrawals and electronic payments.  Transactions are mainly concentrated in Dakar, Thiès, and Kaolack, with amounts varying but generally below 150,000 CFA.
+
+* **Suspicious:**  A sudden increase in the number of transactions or amounts.  Transactions from unusual locations.  Multiple failed transactions.
+
+* **Fraudulent:** Transactions from outside Senegal.  A large number of failed transactions followed by a successful one of a significant amount.  Multiple transactions within a short timeframe from different locations.
+
+
+
+**Regles.txt Content:**
+
+The following content would be written to the Regles.txt file.  This is a textual representation and not suitable for direct programmatic use without further processing.
+
+
+```
+Client 50743:
+Normal: Online payments and ATM withdrawals in Dakar, Thiès, Kaolack. Amounts generally below 20,000 CFA. Occasional larger online payments (up to 150,000 CFA).  Transactions throughout the day, less frequent on weekends.  A few pending transactions are acceptable.
+Suspicious: Transactions exceeding 150,000 CFA from unusual locations. Multiple failed transactions in a short period. Sudden increase in transaction frequency or shift in transaction types.
+Fraudulent: Transactions from locations outside Senegal. Large number of failed transactions followed by a successful large transaction. Multiple ATM withdrawals in short time from different locations.
+
+Client 50462:
+Normal: Mix of ATM withdrawals and online/electronic payments across various locations within Senegal. Amounts typically below 50,000 CFA. Occasional pending transactions.
+Suspicious: Frequent failed ATM withdrawals. Transactions from geographically distant locations in a short period. Significant increase in transaction amounts.
+Fraudulent: Transactions from outside Senegal. Consecutive failed transactions followed by a large successful transaction. Unusual transaction types.
+
+Client 50987:
+Normal: Primarily electronic and online payments, occasional ATM withdrawals. Transactions concentrated in Fatick, Mbour, Matam. Amounts generally below 120,000 CFA.
+Suspicious: High frequency of failed ATM withdrawals. Transactions from locations far from the usual pattern. Amounts significantly exceeding the average.
+Fraudulent: Transactions occurring outside of Senegal. Multiple failed transactions, especially involving large amounts.
+
+Client 50139:
+Normal: Mix of transaction types across various locations within Senegal. Amounts vary considerably. Occasional pending or failed transactions.
+Suspicious: Multiple failed transactions, particularly online payments. Transactions from locations showing a sudden geographic shift. Large amounts in a short period.
+Fraudulent: Transactions from outside Senegal. Consecutive failed attempts followed by a successful large transaction. Unusual transaction types.
+
+Client 50512:
+Normal: Primarily ATM withdrawals and electronic payments. Transactions mainly in Dakar, Thiès, Kaolack. Amounts generally below 150,000 CFA.
+Suspicious: Sudden increase in transactions or amounts. Transactions from unusual locations. Multiple failed transactions.
+Fraudulent: Transactions from outside Senegal. Large number of failed transactions followed by a successful large transaction. Multiple transactions within a short timeframe from different locations.
+```
+
+Based on the provided data, here's a set of rules for detecting normal, suspicious, and fraudulent transactions for each client.  These rules are designed to be applied to future transactions.  The rules consider transaction frequency, location, amount, type, and status.
+
+**Rules for Client 50743:**
+
+* **Normal:** Transactions are primarily online payments and ATM withdrawals in Dakar, Thiès, and Kaolack.  Amounts are generally below 20,000 CFA, with occasional larger online payments (up to 150,000 CFA). Transactions occur throughout the day but are less frequent on weekends.  A few pending transactions are acceptable.
+
+* **Suspicious:** Transactions exceeding 150,000 CFA from unusual locations. Multiple failed transactions in a short period.  A sudden increase in transaction frequency or a significant shift in transaction types.
+
+* **Fraudulent:**  Transactions from locations outside Senegal.  A large number of failed transactions followed by a successful one of a significant amount.  Multiple ATM withdrawals in a short time from different locations.
+
+
+**Rules for Client 50462:**
+
+* **Normal:**  Mix of ATM withdrawals and online/electronic payments across various locations within Senegal.  Amounts vary but typically below 50,000 CFA.  Occasional pending transactions are acceptable.
+
+* **Suspicious:** Frequent ATM withdrawal attempts that fail.  Transactions from geographically distant locations in a short period.  A significant increase in transaction amounts compared to the average.
+
+* **Fraudulent:** Transactions from countries outside Senegal.  Consecutive failed transactions followed by a large successful transaction.  Unusual transaction types compared to the client's history.
+
+
+**Rules for Client 50987:**
+
+* **Normal:** Primarily electronic and online payments, with occasional ATM withdrawals. Transactions are concentrated in the cities of Fatick, Mbour, Matam.  Amounts vary but are generally below 120,000 CFA.
+
+* **Suspicious:**  High frequency of failed ATM withdrawals. Transactions from locations far from the usual pattern.  Amounts significantly exceeding the average.
+
+* **Fraudulent:** Transactions occurring outside of Senegal.  Multiple failed transactions, especially if involving large amounts.
+
+
+**Rules for Client 50139:**
+
+* **Normal:**  A mix of transaction types (online, ATM, electronic payments) across various locations within Senegal.  Amounts vary considerably.  Occasional pending or failed transactions are normal.
+
+* **Suspicious:**  Multiple failed transactions, particularly online payments.  Transactions from locations showing a sudden geographic shift.  Large amounts in a short period.
+
+* **Fraudulent:** Transactions from outside Senegal.  Consecutive failed attempts followed by a successful transaction of a large amount.  Unusual transaction types.
+
+
+**Rules for Client 50512:**
+
+* **Normal:** Primarily ATM withdrawals and electronic payments.  Transactions are mainly concentrated in Dakar, Thiès, and Kaolack, with amounts varying but generally below 150,000 CFA.
+
+* **Suspicious:**  A sudden increase in the number of transactions or amounts.  Transactions from unusual locations.  Multiple failed transactions.
+
+* **Fraudulent:** Transactions from outside Senegal.  A large number of failed transactions followed by a successful one of a significant amount.  Multiple transactions within a short timeframe from different locations.
+
+
+
+**Regles.txt Content:**
+
+The following content would be written to the Regles.txt file.  This is a textual representation and not suitable for direct programmatic use without further processing.
+
+
+```
+Client 50743:
+Normal: Online payments and ATM withdrawals in Dakar, Thiès, Kaolack. Amounts generally below 20,000 CFA. Occasional larger online payments (up to 150,000 CFA).  Transactions throughout the day, less frequent on weekends.  A few pending transactions are acceptable.
+Suspicious: Transactions exceeding 150,000 CFA from unusual locations. Multiple failed transactions in a short period. Sudden increase in transaction frequency or shift in transaction types.
+Fraudulent: Transactions from locations outside Senegal. Large number of failed transactions followed by a successful large transaction. Multiple ATM withdrawals in short time from different locations.
+
+Client 50462:
+Normal: Mix of ATM withdrawals and online/electronic payments across various locations within Senegal. Amounts typically below 50,000 CFA. Occasional pending transactions.
+Suspicious: Frequent failed ATM withdrawals. Transactions from geographically distant locations in a short period. Significant increase in transaction amounts.
+Fraudulent: Transactions from outside Senegal. Consecutive failed transactions followed by a large successful transaction. Unusual transaction types.
+
+Client 50987:
+Normal: Primarily electronic and online payments, occasional ATM withdrawals. Transactions concentrated in Fatick, Mbour, Matam. Amounts generally below 120,000 CFA.
+Suspicious: High frequency of failed ATM withdrawals. Transactions from locations far from the usual pattern. Amounts significantly exceeding the average.
+Fraudulent: Transactions occurring outside of Senegal. Multiple failed transactions, especially involving large amounts.
+
+Client 50139:
+Normal: Mix of transaction types across various locations within Senegal. Amounts vary considerably. Occasional pending or failed transactions.
+Suspicious: Multiple failed transactions, particularly online payments. Transactions from locations showing a sudden geographic shift. Large amounts in a short period.
+Fraudulent: Transactions from outside Senegal. Consecutive failed attempts followed by a successful large transaction. Unusual transaction types.
+
+Client 50512:
+Normal: Primarily ATM withdrawals and electronic payments. Transactions mainly in Dakar, Thiès, Kaolack. Amounts generally below 150,000 CFA.
+Suspicious: Sudden increase in transactions or amounts. Transactions from unusual locations. Multiple failed transactions.
+Fraudulent: Transactions from outside Senegal. Large number of failed transactions followed by a successful large transaction. Multiple transactions within a short timeframe from different locations.
+```
+
+Règles de détection des transactions pour les clients :
+
+**Client 50321:**
+
+* **Normale:** Transactions régulières (1 à 3 par mois) avec un montant moyen inférieur à 10000 FCFA, effectuées principalement à Dakar et Thiès entre 9h et 18h.  Types de transactions : Paiement en ligne et ATM.
+* **Suspecte:**  Plus de 3 transactions en un mois, avec un montant supérieur à 10000 FCFA, effectuées en dehors de Dakar et Thiès ou en dehors des heures habituelles (9h-18h). Plusieurs transactions échouées consécutives.  
+* **Fraude:** Transaction importante (>20000 FCFA) dans une région inhabituelle (ex: une transaction à Saint-Louis alors que les transactions habituelles sont à Dakar et Thiès) en dehors des heures habituelles. Plusieurs tentatives de transactions échouées suivies d'une transaction réussie de grande valeur.
+
+
+**Client 50785:**
+
+* **Normale:** Transactions régulières (2 à 4 par mois), avec un montant moyen entre 8000 et 15000 FCFA, réparties sur différentes régions (Kolda, Tambacounda, Diourbel, Louga) entre 10h et 16h. Types de transactions : Paiement en ligne, Paiement électronique et ATM.
+* **Suspecte:**  Plus de 4 transactions en un mois, ou un montant total supérieur à 50000 FCFA, ou transactions effectuées en dehors des heures habituelles (10h-16h).  Plusieurs transactions échouées consécutives.
+* **Fraude:**  Transaction importante (>25000 FCFA) dans une région inhabituelle,  ou plusieurs transactions de faible montant effectuées rapidement dans différentes régions.
+
+
+**Client 51234:**
+
+* **Normale:** Transactions régulières (1 à 2 par mois), avec un montant moyen autour de 10000 FCFA, effectuées principalement via ATM,  dans des régions variées (Matam, Rufisque, Kédougou, Bamako) entre 9h et 14h.
+* **Suspecte:** Plus de 2 transactions par mois, ou un montant total supérieur à 25000 FCFA, ou transactions effectuées en dehors des heures habituelles (9h-14h).  Transaction à l'international (Bamako) avec un montant important.
+* **Fraude:** Transactions multiples de faible montant dans des régions différentes en peu de temps, ou transaction importante (>20000 FCFA) à l'international (Bamako) en dehors des heures habituelles.
+
+
+**Client 52369:**
+
+* **Normale:** Transactions régulières (1 à 3 par mois), avec un montant moyen autour de 10000 FCFA, effectuées principalement dans des régions du sud du pays (Sédhiou, Kaffrine, Tambacounda, Diourbel, Mbacké) entre 10h et 16h. Types de transactions : Paiement en ligne, ATM et Paiement électronique.
+* **Suspecte:** Plus de 3 transactions par mois, ou un montant total supérieur à 30000 FCFA, ou transactions effectuées en dehors des heures habituelles (10h-16h) ou dans des régions inhabituelles. Plusieurs transactions échouées consécutives.
+* **Fraude:** Transaction importante (>25000 FCFA) dans une région inhabituelle,  ou plusieurs transactions de faible montant effectuées rapidement dans différentes régions.
+
+
+**Remarques:**  Ces règles sont basées sur les données limitées fournies.  Une analyse plus approfondie avec un plus grand volume de données et l'inclusion de variables supplémentaires (ex:  type de carte,  adresse IP,  etc.) améliorerait considérablement la précision des règles.  Un système de scoring basé sur la probabilité de fraude serait également plus robuste.
+
+
+Contenu du fichier Regles.txt:
+
+```
+Client 50321:
+Normale: Transactions régulières (1 à 3 par mois) avec un montant moyen inférieur à 10000 FCFA, effectuées principalement à Dakar et Thiès entre 9h et 18h. Types de transactions : Paiement en ligne et ATM.
+Suspecte: Plus de 3 transactions en un mois, avec un montant supérieur à 10000 FCFA, effectuées en dehors de Dakar et Thiès ou en dehors des heures habituelles (9h-18h). Plusieurs transactions échouées consécutives.
+Fraude: Transaction importante (>20000 FCFA) dans une région inhabituelle en dehors des heures habituelles. Plusieurs tentatives de transactions échouées suivies d'une transaction réussie de grande valeur.
+
+Client 50785:
+Normale: Transactions régulières (2 à 4 par mois), avec un montant moyen entre 8000 et 15000 FCFA, réparties sur différentes régions (Kolda, Tambacounda, Diourbel, Louga) entre 10h et 16h. Types de transactions : Paiement en ligne, Paiement électronique et ATM.
+Suspecte: Plus de 4 transactions en un mois, ou un montant total supérieur à 50000 FCFA, ou transactions effectuées en dehors des heures habituelles (10h-16h). Plusieurs transactions échouées consécutives.
+Fraude: Transaction importante (>25000 FCFA) dans une région inhabituelle, ou plusieurs transactions de faible montant effectuées rapidement dans différentes régions.
+
+Client 51234:
+Normale: Transactions régulières (1 à 2 par mois), avec un montant moyen autour de 10000 FCFA, effectuées principalement via ATM, dans des régions variées (Matam, Rufisque, Kédougou, Bamako) entre 9h et 14h.
+Suspecte: Plus de 2 transactions par mois, ou un montant total supérieur à 25000 FCFA, ou transactions effectuées en dehors des heures habituelles (9h-14h). Transaction à l'international (Bamako) avec un montant important.
+Fraude: Transactions multiples de faible montant dans des régions différentes en peu de temps, ou transaction importante (>20000 FCFA) à l'international (Bamako) en dehors des heures habituelles.
+
+Client 52369:
+Normale: Transactions régulières (1 à 3 par mois), avec un montant moyen autour de 10000 FCFA, effectuées principalement dans des régions du sud du pays (Sédhiou, Kaffrine, Tambacounda, Diourbel, Mbacké) entre 10h et 16h. Types de transactions : Paiement en ligne, ATM et Paiement électronique.
+Suspecte: Plus de 3 transactions par mois, ou un montant total supérieur à 30000 FCFA, ou transactions effectuées en dehors des heures habituelles (10h-16h) ou dans des régions inhabituelles. Plusieurs transactions échouées consécutives.
+Fraude: Transaction importante (>25000 FCFA) dans une région inhabituelle, ou plusieurs transactions de faible montant effectuées rapidement dans différentes régions.
+```
